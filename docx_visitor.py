@@ -66,6 +66,10 @@ class DocxStylesheet:
         run.font.size = Pt(12)
         return run
 
+    def strike_run(self, run: Run) -> Run:
+        run.font.strike = True
+        return run
+
     def listing_style(self, paragraph: Paragraph) -> Paragraph:
         paragraph_format = paragraph.paragraph_format
         paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
@@ -77,6 +81,15 @@ class DocxStylesheet:
         run.font.all_caps = True
         return run
 
+    def listing_header_style(self, paragraph: Paragraph) -> Paragraph:
+        paragraph_format = paragraph.paragraph_format
+        paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
+        paragraph_format.line_spacing = 1.0
+        paragraph.style.font.name = 'Times New Roman'
+        paragraph.style.font.size = Pt(14)
+        paragraph.style.font.color.rgb = None
+        return paragraph
+
 
 class DocxTreeVisitor:
 
@@ -86,6 +99,8 @@ class DocxTreeVisitor:
         self.section: Section = self.doc.sections[-1]
         self.paragraph: Paragraph = None
         self.header_numbers = {2: 0, 3: 0}
+        self.listing_counter = 0
+        self.image_counter = 0
 
         self.stylesheet = DocxStylesheet()
         self.stylesheet.set_styles(self.doc)
@@ -117,7 +132,6 @@ class DocxTreeVisitor:
         elif level == 3:
             self.header_numbers[3] += 1
             header_number = f'{self.header_numbers[2]}.{self.header_numbers[3]} '
-        print(header_number)
         self.paragraph = self.doc.add_heading('', level=level)
         run = self.paragraph.add_run(header_number)
         self.stylesheet.default_text_run(run)
@@ -143,6 +157,10 @@ class DocxTreeVisitor:
         return [self.paragraph]
 
     def _visit_block_code(self, node):
+        self.listing_counter += 1
+        listing_header_text = f'Листинг {self.listing_counter} – Название листинга'
+        self.paragraph = self.doc.add_paragraph(listing_header_text)
+        self.stylesheet.listing_header_style(self.paragraph)
         self.paragraph = self.doc.add_paragraph(node['raw'])
         self.stylesheet.listing_style(self.paragraph)
         return [self.paragraph]
@@ -159,7 +177,9 @@ class DocxTreeVisitor:
         return [run]
 
     def _visit_strikethrough(self, node):
-        return []
+        runs = self.visit(node['children'])
+        [self.stylesheet.strike_run(run) for run in runs]
+        return runs
 
     def _visit_table(self, node):
         return []
@@ -183,7 +203,18 @@ class DocxTreeVisitor:
         return []
 
     def _visit_image(self, node):
-        return []
+        url = node['attrs']['url']
+        self.paragraph = self.doc.add_paragraph()
+        run = self.paragraph.add_run()
+        picture = run.add_picture(url, width=Cm(15))
+        self.paragraph.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        self.paragraph.paragraph_format.line_spacing = 1.0
+        self.image_counter += 1
+        self.paragraph = self.doc.add_paragraph(f'Рисунок {self.image_counter} – ')
+        self.paragraph.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        self.paragraph.paragraph_format.line_spacing = 1.0
+        children_res = sum([self.visit(child) for child in node['children']], start=[])
+        return [self.paragraph]
 
     def _visit_block_text(self, node):
         return []
@@ -199,4 +230,6 @@ class DocxTreeVisitor:
         return children_res
 
     def _visit_inline_math(self, node):
-        return []
+        self.paragraph = self.doc.add_paragraph(f"$${node['raw']}$$")
+        # self.paragraph.style.font.math = True
+        return [self.paragraph]

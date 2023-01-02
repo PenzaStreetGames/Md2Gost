@@ -384,7 +384,7 @@
           }
         ],
         "attrs": {
-          "url": "https://habrastorage.org/webt/ib/yb/-3/ibyb-3rdjj6gw9vr_c2lf4a8k60.png"
+          "url": "images/metastruct-arch.png"
         }
       }
     ]
@@ -1091,7 +1091,7 @@
           }
         ],
         "attrs": {
-          "url": "https://habrastorage.org/webt/gu/j4/kx/guj4kxpgtln4hzrxcb-13g8pf24.png"
+          "url": "plots/exec_sum.png"
         }
       }
     ]
@@ -1165,7 +1165,7 @@
           }
         ],
         "attrs": {
-          "url": "https://habrastorage.org/webt/tr/pr/mu/trprmuutfawoh36iib0bxsnq5x0.png"
+          "url": "plots/exec_hash.png"
         }
       }
     ]
@@ -1304,7 +1304,7 @@
           }
         ],
         "attrs": {
-          "url": "https://habrastorage.org/webt/jh/ly/th/jhlythqsrmppqqvw-cxgmth156w.png"
+          "url": "plots/exec_exp_3.png"
         }
       }
     ]
@@ -1336,7 +1336,7 @@
           }
         ],
         "attrs": {
-          "url": "https://habrastorage.org/webt/zx/rd/x7/zxrdx7gopltra0dwefwijc0bbew.png"
+          "url": "plots/exec_exp_2.png"
         }
       }
     ]
@@ -1458,7 +1458,7 @@
           }
         ],
         "attrs": {
-          "url": "https://habrastorage.org/webt/-r/-g/6c/-r-g6ckckxabt6bxgo_yxxgvk3s.png"
+          "url": "plots/exec_fib_3.png"
         }
       }
     ]
@@ -1511,7 +1511,7 @@
           }
         ],
         "attrs": {
-          "url": "https://habrastorage.org/webt/ce/n1/b-/cen1b-hk2dfyf_kcqb8qk-ozclk.png"
+          "url": "plots/exec_fib_2.png"
         }
       }
     ]

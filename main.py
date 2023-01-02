@@ -6,7 +6,7 @@ from html_visitor import HtmlTreeVisitor
 from docx_visitor import DocxTreeVisitor
 
 if __name__ == '__main__':
-    with open("md/habr.md", "r", encoding="utf-8") as infile:
+    with open("habr.md", "r", encoding="utf-8") as infile:
         md = infile.read()
     markdown = mistune.create_markdown(renderer=None, plugins=['table', 'url', 'math', 'strikethrough'])
     with open("json/mistune.json", "w", encoding="utf-8") as outfile:
