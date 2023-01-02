@@ -1,0 +1,3 @@
+panflute
+mistune==3.0.0rc4
+python-docx

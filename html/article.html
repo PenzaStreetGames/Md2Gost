@@ -1,0 +1,378 @@
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<h1>JIT-компилятор Python в 300 строк</h1>
+Может ли студент второго курса написать  <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">JIT</a>  - компилятор Питона, конкурирующий по производительности с  промышленным решением? С учётом того, что он это сделает за две недели за зачёт по программированию.
+Как оказалось, может, но с нюансами.
+<h2>Предисловие</h2>
+Обучаясь в  <b>РТУ МИРЭА</b> , на специальности программная инженерия я попал на семестровый курс программирования на Питоне.  Питон я знал до этого, поэтому не хотелось много с ним возиться. Благо творчество студентов поощряется, иногда  даже "автоматами". Собственно, стимулируемый этим "автоматом" и тягой к написанию системных модулей  я написал JIT-компилятор, который назвал  <i>MetaStruct</i> .
+С кодом проекта можно ознакомиться в  <a href="https://github.com/PenzaStreetGames/MetaStruct.git">репозитории</a> .
+<a href="https://github.com/PenzaStreetGames/Yo.git">Предыдущий мой опыт</a>  в написании низкоуровневых программ оказался  нежизнеспособным и весьма поучительным. Но об этом сегодня речь не пойдёт.
+Стандартная реализация Python - CPython - достаточно медленная. В сравнении с C++ называют замедление в  <a href="https://towardsdatascience.com/how-fast-is-c-compared-to-python-978f18f474c7">20-30 раз</a> .  Но целое сообщество программистов на Питоне готовы заплатить эту цену ради удобства синтаксиса, быстроты  написания, изящности и выразительности кода.
+На этой почве появляются разнообразные способы оптимизации выполнения программ на Питоне.  Такие диалекты как  <a href="https://cython.org/">Cython</a> ,  <a href="https://rpython.readthedocs.io/en/latest/">RPython</a>  пытаются решить проблему "разгона" Питона за счёт статической типизации и компиляции модулей.
+В области JIT-компиляции промышленным решением является проект  <a href="https://numba.pydata.org/">Numba</a> , спонсируемый  такими технологическими гигантами как Intel, AMD и NVIDIA. Именно с этим пакетом мне предложили и посоревноваться,  написав миниатюрный JIT-компилятор программ на Питоне.
+В этой статье я хочу рассказать, с какими трудностями я, как программист достаточно прикладной, столкнулся  при написании такой довольно низкоуровневой вещи, как миниатюрный JIT-компилятор.
+<h2>Принцип работы</h2>
+<br><img src="https://habrastorage.org/webt/ib/yb/-3/ibyb-3rdjj6gw9vr_c2lf4a8k60.png" alt="Архитектура"><br>
+На схеме выше показано, какие этапы проходит функция на Питоне, становясь скомпилированным модулем на С++:
+<ol>
+<li><p>Функция, которую мы хотим оптимизировать, помечается аннотацией  <code>@jit</code> , примерно так:</p></li>
+</ol><pre>
+@jit
+def sum(x: int, y: int) -> int:
+    res: int = x + y
+    return res
+</pre>
+<ol>
+<li><p>Аннотация, получая объект функции, с помощью  <a href="https://docs.python.org/3/library/inspect.html#inspect.getsource"><code>inspect.getsource(func_object)</code></a>  получает текст функции в виде строки.</p></li>
+<li><p>С помощью функции  <a href="https://docs.python.org/3/library/ast.html#ast.parse"><code>ast.parse(func_py_text)</code></a>  текст функции превращается в абстрактное синтаксическое дерево (AST) языка Питон</p></li>
+<li><p>Моя программа проходится по дереву через метод  <code>visit()</code> , наследуясь от  <a href="https://docs.python.org/3/library/ast.html#ast.NodeVisitor"><code>ast.NodeVisitor</code></a> ,  и получает на выходе текст программы на C++, который записывается в файл. Для примера выше, он будет  примерно таким:</p></li>
+</ol><pre>
+extern "C" int sum(int x, int y) {
+    int res = (x + y);
+    return res;
+}
+</pre>
+<ol>
+<li><p>Через  <a href="https://docs.python.org/3/library/subprocess.html#subprocess.run"><code>subprocess.run()</code></a>  происходит вызов компилятора  <a href="https://gcc.gnu.org/releases.html">g++</a> , который выдаёт динамически подключаемую  библиотеку (в зависимости от платформы файлом  <code>.dll</code>  или  <code>.so</code> )</p></li>
+</ol><pre>
+g++ -O2 -c source.cpp -o object.o
+g++ -shared object.o -o lib.dll
+</pre>
+<ol>
+<li><p>При помощи вызова  <a href="https://docs.python.org/3/library/ctypes.html#loading-dynamic-link-libraries"><code>ctypes.LibraryLoader(CDLL).LoadLibrary(dll_filename)</code></a>  Динамическая библиотека подключается к среде выполнения и даёт доступ к скомпилированному варианту исходной функции.</p></li>
+<li><p>Конечный пользователь, добавивший над функцией аннотацию  <code>@jit</code> , пользуется совершенно другим  вариантом своего кода, ничего не подозревая.</p></li>
+</ol>Процесс достаточно трудоёмкий для функции сложения из примера, но при частых вызовах и большом количестве вычислений  внутри функции время компиляции окупается.
+Если бы это был не Питон, а какой-нибудь предметно-ориентированный язык, то пришлось бы писать парсер и обход получившегося  абстрактного дерева, и решение не было бы уже таким коротким. Но в моём случае, инфраструктура Питона и его гибкость  сыграли мне на руку.
+<h2>Впечатляющие результаты</h2>
+Наверное, стоит от технической части переходить к части визуализации и маркетинга.
+Созданный алгоритм JIT-компиляции был протестирован на нескольких простых алгоритмических задачах:
+<ul>
+<li><p>Сумма двух чисел</p></li>
+<li><p>Хеш-функция для целых чисел</p></li>
+<li><p>Вычисление экспоненты через ряд Тейлора</p></li>
+<li><p>Числа Фибоначчи</p></li>
+</ul>С расчётами и графиками можно подробнее ознакомиться в  <a href="https://github.com/PenzaStreetGames/MetaStruct/blob/main/performance.ipynb">Jupyter-блокноте</a>
+Для оценки времени выполнения использованы функции  <code>timeit()</code>  и  <code>repeat()</code>  модуля  <code>timeit</code> .  Для отрисовки графиков - модуль  <code>matplotlib</code>
+В примерах будут сравниваться три реализации функций:<ul>
+<li><p>Просто функция питона</p></li>
+<li><p>Оптимизированных аннотацией  <code>@jit</code></p></li>
+<li><p>Оптимизированных аннотацией  <code>@numba.jit</code></p></li>
+</ul><h3>Сумма двух чисел</h3>
+<br><img src="https://habrastorage.org/webt/gu/j4/kx/guj4kxpgtln4hzrxcb-13g8pf24.png" alt="Скорость многократного выполнения, функция суммы"><br>
+<pre>
+def py_sum(x: int, y: int) -> int:
+    res: int = x + y
+    return res
+</pre>
+
+На задаче сложения двух целых чисел никакой оптимизации не видно, даже наоборот. Накладные расходы на вызов  функции из dll-файла и обработка результата занимает много времени по сравнению с самими расчётами. Numba обставила  моего "питомца" в 3 раза на этом примере.
+<h3>Хеш-функция для целых чисел</h3>
+<br><img src="https://habrastorage.org/webt/tr/pr/mu/trprmuutfawoh36iib0bxsnq5x0.png" alt="Скорость многократного выполнения, хеш-функция"><br>
+Обычно, для чисел из небольшого диапазона в качестве хеша используют их самих. Однако на просторах Интернета  я нашёл такую  <a href="https://qastack.ru/programming/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key">хеш-функцию</a> :
+<pre>
+def py_hash(x: int) -> int:
+    x = ((x >> 16) ^ x) * 0x45d9f3b
+    x = ((x >> 16) ^ x) * 0x45d9f3b
+    x = (x >> 16) ^ x
+    return x
+</pre>
+
+Автором сообщения утверждается, что значение параметра  <code>0x45d9f3b</code>  позволяет достичь наибольшей "случайности" бит внутри числа. По  крайней мере для хеш-функций такого вида.
+Numba оказалась хорошо оптимизированной под битовые операции. Не совсем понятно, откуда она взялась. Оставим этот вопрос  открытым, но мне кажется, спонсорство главных производителей процессоров и видеокарт не прошло даром.  Мой же вариант оказался слегка быстрее простого Питона.
+<h3>Вычисление экспоненты через ряд Тейлора</h3>
+<br><img src="https://habrastorage.org/webt/jh/ly/th/jhlythqsrmppqqvw-cxgmth156w.png" alt="Скорость многократного выполнения, экспонента (3)"><br>
+Питон явно показал себя неважно, поэтому посмотрим на двух оптимизаторов отдельно.
+<br><img src="https://habrastorage.org/webt/zx/rd/x7/zxrdx7gopltra0dwefwijc0bbew.png" alt="Скорость многократного выполнения, экспонента (2)"><br>
+Странное большое время для маленького x, выяснилось, обосновано тем, что Numba делает какие-то отложенные шаги  компиляции при первом запуске. На общей её производительности это почти никак не сказывается.
+<pre>
+def py_exp(x: float) -> float:
+    res: float = 0
+    threshold: float = 1e-30
+    delta: float = 1
+    elements: int = 0
+    while delta > threshold:
+        elements = elements + 1
+        delta = delta * x / elements
+    while elements >= 0:
+        res += delta
+        delta = delta * elements / x
+        elements -= 1
+    return res
+</pre>
+
+Кому интересен матан, экспонента считается по формуле соответствующего ряда Тейлора:
+$$e^x = \displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}$$
+Алгоритм прекращается, когда разница между дельтами двух итераций становится меньше порога, либо превращается в  машинный ноль. Суммирование происходит от меньших членов к большим для уменьшения потерь точности.
+Наконец-то моё творение начало соперничать с Numba. На больших объёмах вычислений однозначного лидера нет.
+<h3>Числа Фибоначчи</h3>
+<br><img src="https://habrastorage.org/webt/-r/-g/6c/-r-g6ckckxabt6bxgo_yxxgvk3s.png" alt="Скорость выполнения, числа Фибоначчи (3)"><br>
+<pre>
+def fib(n: int) -> int:
+    if n < 2:
+        return 1
+    return fib(n - 1) + fib(n - 2)
+</pre>
+Несмотря на то, что аннотация позволяет компилировать функции по одной, в ней всё ещё можно использовать рекурсию.
+На рекурсии Питон вообще перестал за себя отвечать. Что там с оптимизаторами?
+<br><img src="https://habrastorage.org/webt/ce/n1/b-/cen1b-hk2dfyf_kcqb8qk-ozclk.png" alt="Скорость выполнения, числа Фибоначчи (2)"><br>
+Внезапно, реализованная в проекте компиляция начала работать в 4 раза быстрее, чем Numba.  Получается, что с задачами разветлённой рекурсии мой JIT-компилятор неплохо справляется.
+Это одно из самых интересных мест всего исследования, которе можно было бы продолжить.
+<h2>Мысли сходятся</h2>
+На самом деле, такой подход к оптимизации не нов в мире программирования. Чем-то похожим  <a href="https://vmakarov.fedorapeople.org/VMakarov-RubyKaigi2017.pdf">занимался</a>  Владимир Макаров,  оптимизируя Ruby до уровня языка передачи регистров  <a href="https://en.wikipedia.org/wiki/Register_transfer_language">RTL</a>  в своём проекте MJIT.
+Существуют даже оптимизации сделанные поверх решения Макарова, о которых можно почитать  <a href="https://k0kubun.medium.com/the-method-jit-compiler-for-ruby-2-6-388ee0989c13">здесь</a> .
+В частности, в исследованиях отмечается, что выбор компилятора, будь то GCC или LLVM, существенно не сказывается на  производительности. В моём решении использован g++ из-за большей портируемости скомпилированного кода.
+Для ускорения вычислений в проекте Ruby используются также предскомплированные заголовки. Однако, для  студенческой работы такой уровень оптимизации не требуется.
+<h2>Непредвиденные трудности</h2>
+Конечно же, всё заработало не с первого раза. Вероятно, даже не с десятого. Поэтому хотелось бы привести здесь  небольшую "работу над ошибками"
+<h3>Типы данных</h3>
+Питон медленный во многом из-за динамической типизации, так как довольно много времени уходит на  определение типа переменной перед её использованием. Также, идеология "всё есть объект" раздувает примитивные типы  данных до размера остальных объектов и классов. Чтобы ускорить вычисления, нужно использовать именно примитивы,  а не объекты.
+Проблема в том, что из кода на Питоне не всегда очевидно, какого типа будет переменная. Продвинутые оптимизаторы  умеют определять тип переменной "на лету" из контекста. Я решил не усложнять жизнь  <del>, а усложнить код,</del>  и  использовать аннотации типов.
+Про использование аннотаций типов есть хорошие статьи в  <a href="https://docs.python.org/3/library/typing.html">официальной документации</a>  или на  <a href="https://habr.com/ru/company/lamoda/blog/432656/">Хабре</a> .
+Пусть нужно скомпилировать ту самую функцию сложения:
+<pre>
+def sum(x, y):
+    res = x + y
+    return res
+</pre>
+
+Какой-нибудь компилируемый язык, C++ например, за такую программу спасибо не скажет. Добавим аннотации:
+<pre>
+def sum(x: int, y: int) -> int:
+    res: int = x + y
+    return res
+</pre>
+
+В этом примере явного объявления типов требуют три вещи:
+<ol>
+<li><p>Аргументов функции</p></li>
+<li><p>Возвращаемое из функции значение</p></li>
+<li><p>Локальные переменные</p></li>
+</ol>В базовой реализации будет только три типа данных:
+<table style="border: 1px solid black; border-collapse: collapse;">
+<thead>
+<td style="border: 1px solid black; border-collapse: collapse;">Тип данных Python</td>
+<td style="border: 1px solid black; border-collapse: collapse;">Тип данных C++</td>
+</thead>
+
+<tbody>
+<tr>
+<td style="border: 1px solid black; border-collapse: collapse;">bool</td>
+<td style="border: 1px solid black; border-collapse: collapse;">bool</td>
+</tr>
+
+<tr>
+<td style="border: 1px solid black; border-collapse: collapse;">int</td>
+<td style="border: 1px solid black; border-collapse: collapse;">int</td>
+</tr>
+
+<tr>
+<td style="border: 1px solid black; border-collapse: collapse;">float</td>
+<td style="border: 1px solid black; border-collapse: collapse;">double</td>
+</tr>
+
+</tbody>
+
+</table>
+Использование более сложных типов данных выходит за задачу миниатюрности компилятора. Но стоит отметить,  что строки, коллекции и объекты Питона могут быть поддержаны с использованием  <a href="https://docs.python.org/3/c-api/index.html">Python C API</a>
+<h3>Кодирование имён функций</h3>
+С++ видоизменяет названия функций согласно их сигнатуре и аргументам. Например, функцию  <code>int f(int x)</code>  компилятор может  преобразовать в  <code>_Z1fi</code> . Подробнее о соглашении именования функции при компиляции можно узнать, например,  <a href="https://en.wikipedia.org/wiki/Name_mangling">здесь</a>
+После переименования к функциям уже нельзя обратиться по первоначальному названию.  Конечно, можно было бы написать свой алгоритм, который делает те же преобразования, что и компилятор. Но на самом деле,  существует более простое решение, к которому мне пришлось в итоге прийти.
+При добавлении к объявлению функции префикса  <code>extend &quot;C&quot;</code>  имена не будут кодироваться:
+<pre>
+extern "C" int sum(int x, int y) {
+    int res = (x + y);
+    return res;
+}
+</pre>
+
+Так происходит, потому что мы явно указываем, что имена функций должны кодироваться по соглашению языка C,  то есть, никак.
+<h3>Запуск DLL</h3>
+Как программисту, плохо знакомому с чем-то ниже C++, мне было трудно понять, как подключить собранную  dll-библиотеку к Питону. Изначально была идея использовать  <code>rundll32.exe</code>  для запуска. Почитав  <a href="https://ru.wikipedia.org/wiki/Rundll32.exe">Википедию</a>  и  <a href="https://stackoverflow.com/questions/3207365/how-to-use-rundll32-to-execute-dll-function">ещё одно обсуждение</a>  я немного разочаровался в прикладной применимости и портируемости этого решения.
+Потом я нашёл статью с говорящим названием:  <a href="https://devblogs.microsoft.com/oldnewthing/20130104-00/?p=5643">What’s the guidance on when to use rundll32? Easy: Don’t use it</a>
+Только после этого я был направлен на путь истинный, а точнее, на использование модуля  <code>ctypes</code> . В этот момент  мои скомпилированные функции впервые начали возвращать мне значения прямо в Питоне.
+<h3>Вызов функции из DLL</h3>
+Всё шло гладко, пока я оперировал целыми числами. При попытке считать дробные... возвращались целые очень странного  формата.
+<pre>
+# просто питон
+print(exp(0.1)) 
+# >>> 1.1051709180756475
+
+# моё чудо
+print(jit_exp(0.1)) 
+# >>> -1285947181
+</pre>
+
+Как оказалось, по умолчанию, все функции, импортируемые из dll работают с аргументами как с int и возвращают тоже int.  Тут до меня дошло, что возвращать просто строку программы на C++ из транслятора недостаточно. Из функций необходимо ещё  получить сигнатуру, чтобы потом применить нужные типы из модуля  <code>ctypes</code> . Метод посещения объявления функции начал  выглядеть вот так:
+<pre>
+def visit_FunctionDef(self, node: FunctionDef) -> Tuple[str, dict]:
+    ret_type = self.visit(node.returns)
+    name = node.name
+    args, args_signature = [], []
+    for arg in node.args.args:
+        arg, arg_type = self.visit(arg)
+        args.append(f"{arg_type} {arg}")
+        args_signature.append(ctype_convert(arg_type))
+    args = ", ".join(args)
+    res = f"extern \"C\" {ret_type} {name}({args}) {{\n"
+    res += self.dump_body(node.body) + "}"
+    signature = {
+        "argtypes": args_signature,
+        "restype": ctype_convert(ret_type)
+    }
+    return res, signature
+</pre>
+
+Появился метод встраивания этих типов в сигнатуру dll:
+<pre>
+def jit(func: Callable) -> Callable:
+    exec_module, signatures = compile_dll(func)
+    name = func.__name__
+    jit_func = exec_module[name]
+    jit_func.argtypes = signatures[name]["argtypes"]
+    jit_func.restype = signatures[name]["restype"]
+    return jit_func
+</pre>
+
+Для того чтобы функции вызывались так же хорошо, как с целыми числами, достаточно было поменять у функций внутри  загруженного dll атрибуты  <code>argtypes</code>  и  <code>restype</code> . Сами типы для подстановки были взяты из модуля ctypes:
+<pre>
+def ctype_convert(type_str: str):
+    match type_str:
+        case "int":
+            return ctypes.c_int
+        case "double":
+            return ctypes.c_double
+        case "bool":
+            return ctypes.c_bool
+        case _:
+            raise Exception(f"unsupported type str {type_str}")
+</pre>
+
+После всех этих  <del>накручиваний костылей</del>  махинаций ответ экспоненты начал совпадать с Питоном.
+Подробнее про использование функций, загруженных из DLL, можно почитать в этой  <a href="https://habr.com/ru/post/499152/">статье</a>
+<h2>Немного магии</h2>
+Хороший код не пишется сразу. Например, в моём проекте основные блоки пришлось переписать два раза. В крупных проектах  борьба с техдолгом вообще может уходить в бесконечность, но я пока что, к сожалению или к счастью, с этим не сталкивался.
+Я хотел показать на примере функции синтаксического разбора бинарной операции  <code>ast.BinOp</code>  как можно по-разному  писать код, который будет в разной степени сложно поддерживать.
+<h3>Словарь с типами</h3>
+Это самая первая реализация:
+<pre>
+def dump_bin_op(module: ast.BinOp) -> str:
+    res = ""
+    left = dump_expr(module.left)
+    right = dump_expr(module.right)
+    op = module.op
+    bin_op_signs = {
+        ast.Add: "+",
+        ast.Sub: "-",
+        ast.Div: "/",
+        ast.Mult: "*",
+        # и ещё 6-8 бинарных операций
+    }
+    op_sign = bin_op_signs[type(op)]
+    return f"({left} {op_sign} {right})"
+</pre>
+
+По сравнению с блоком  <code>if-elif-elif-elif-...-else</code>  такой код кажется проще. Но тут происходит явное  обращение к типу через  <code>type()</code> , что не очень хорошо.
+<h3>Match/case</h3>
+Тут мне посоветовали начать уже использовать плюшки версии Питона 3.10 на полную катушку, а именно, применить  сравнение по шаблону и оператор  <code>match/case</code>
+<pre>
+def dump_bin_op(module: ast.BinOp) -> str:
+    match module:
+        case ast.BinOp(op=ast.Add()):
+            op_sign = "+"
+        case ast.BinOp(op=ast.Sub()):
+            op_sign = "-"
+        case ast.BinOp(op=ast.Div()):
+            op_sign = "/"
+        case ast.BinOp(op=ast.Mult()):
+            op_sign = "*"
+        # и ещё 6-8 бинарных операций
+        case _:
+            raise Exception(f"unsupported bin op type {op_type}")
+    left = dump_expr(module.left)
+    right = dump_expr(module.right)
+    return f"({left} {op_sign} {right})"
+</pre>
+
+Код стал чуточку короче и выразительнее. Шаблоны после слова  <code>case</code>  можно всячески усложнять, выбирая всё более  специфичные случаи. Какой-нибудь  <code>switch/case</code>  в другом языке программирования такого себе не может позволить.  Подробнее про возможности оператора  <code>match/case</code>  можно узнать  <a href="https://docs-python.ru/tutorial/tsikly-upravlenie-vetvleniem-python/konstruktsija-match-case/">тут</a>
+Вот ещё маленький пример, решающий проблему занижения регистра для констант  <code>True</code>  и  <code>False</code> :
+<pre>
+def visit_Constant(self, node: Constant) -> str:
+    match node:
+        case Constant(value=True):
+            return "true"
+        case Constant(value=False):
+            return "false"
+        case _:
+            return str(node.value)
+</pre>
+
+Выглядит покрасивее, чем  <code>if node.value == True:</code> . Но тут уже на вкус и цвет.
+<h3>ast.NodeVisitor</h3>
+Вот я и пришёл к тому, что давно написали за меня, но я об этом никогда не слышал, поэтому ещё не применил.
+Как ни странно, модуль, описывающий абстрактное дерево в виде структуры, предоставляет также и методы для его обхода.  Этот метод называется  <code>ast.NodeVisitor.visit()</code>
+Как следует из названия, NodeVisitor реализует шаблон проектирования  <a href="https://refactoring.guru/ru/design-patterns/visitor">Посетитель</a> ,  позволяющий создавать новую внешнюю функциональность с минимальным изменением уже написанного кода.
+Для написания своего посетителя необходимо объявить класс-наследник класса  <code>ast.NodeVisitor</code> :
+<pre>
+class DumpVisitor(ast.NodeVisitor):
+    ...
+    def visit_BinOp(self, node: ast.BinOp) -> str:
+        return f"({self.visit(node.left)} {self.visit(node.op)} {self.visit(node.right)})"
+
+    def visit_Add(self, node: ast.Add) -> str:
+        return "+"
+
+    def visit_Sub(self, node: ast.Sub) -> str:
+        return "-"
+
+    def visit_Div(self, node: ast.Div) -> str:
+        return "/"
+
+    def visit_Mult(self, node: ast.Mult) -> str:
+        return "*"
+
+    # ещё 6-8 методов обхода бинарных операций
+    ... # и не только
+</pre>
+
+Код остальных методов посетителя можно изучить в  <a href="https://github.com/PenzaStreetGames/MetaStruct/blob/main/tree_to_code/dump_visitor.py">репозитории</a> .
+Код стал более модульным, названия и сигнатуры методов уже придуманы за нас, выбор нужного метода происходит без  нашего участия. Вот на этом варианте я и решил остановиться.
+Во время написания кода на Питоне у меня возникает чувство ощущения красоты, краткости и мощи собственного кода.  В этом есть какая-то магия.
+<h2>Подсчёт строк</h2>
+Дабы не потерять доверие читателя, я провёл подсчёт строк кода транслятора:
+<table style="border: 1px solid black; border-collapse: collapse;">
+<thead>
+<td style="border: 1px solid black; border-collapse: collapse;">Код</td>
+<td style="border: 1px solid black; border-collapse: collapse;">Объём</td>
+</thead>
+
+<tbody>
+<tr>
+<td style="border: 1px solid black; border-collapse: collapse;">Аннотация и процесс компиляции</td>
+<td style="border: 1px solid black; border-collapse: collapse;">36</td>
+</tr>
+
+<tr>
+<td style="border: 1px solid black; border-collapse: collapse;">Транслятор на NodeVisitor</td>
+<td style="border: 1px solid black; border-collapse: collapse;">221</td>
+</tr>
+
+<tr>
+<td style="border: 1px solid black; border-collapse: collapse;">Итого</td>
+<td style="border: 1px solid black; border-collapse: collapse;">257</td>
+</tr>
+
+</tbody>
+
+</table>
+Остальные файлы, как оказалось, к процессу исполнения напрямую не причастны. Я даже не стал исключать того большого  числа пустых строк, которого требует PEP8. Получается, что даже немного наврал  читателю насчёт числа строк. Пусть он меня простит.
+Думаю, такой небольшой проект можно было бы легко поддерживать, если бы в этом была бы необходимость.
+<h2>Итог</h2>
+Хочу сказать спасибо  <a href="https://habr.com/ru/users/true-grue/">Петру Николаевичу Советову</a>  за наставничество при  написании этого проекта и этой статьи. Как оказывается, писать статьи труднее, чем писать код в ящик.
+Проекту в плане функционала есть куда расти. Поддержка строк, коллекций, объектов, классов. Правда с учётом полученного  зачёта, предлагаю энтузиастам, взяв моё решение за основу, добиться большей производительности и функциональности.
+Предел у этого совершенства всё равно есть. На поддержке библиотек такие решения оптимизации обычно отказываются работать  либо поддерживают самые популярные и базовые, такие как Numpy или PIL.
+И всё же, если очень захотеть, можно заставить Питон работать быстрее, уничтожая один из извечных аргументов программистов  на C++ и Java против использования Python.

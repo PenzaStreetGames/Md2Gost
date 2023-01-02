@@ -1,0 +1,3470 @@
+[
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 1
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "JIT-\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440 Python \u0432 300 \u0441\u0442\u0440\u043e\u043a"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041c\u043e\u0436\u0435\u0442 \u043b\u0438 \u0441\u0442\u0443\u0434\u0435\u043d\u0442 \u0432\u0442\u043e\u0440\u043e\u0433\u043e \u043a\u0443\u0440\u0441\u0430 \u043d\u0430\u043f\u0438\u0441\u0430\u0442\u044c "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "JIT"
+          }
+        ],
+        "attrs": {
+          "url": "https://en.wikipedia.org/wiki/Just-in-time_compilation"
+        }
+      },
+      {
+        "type": "text",
+        "raw": " - \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440 \u041f\u0438\u0442\u043e\u043d\u0430, \u043a\u043e\u043d\u043a\u0443\u0440\u0438\u0440\u0443\u044e\u0449\u0438\u0439 \u043f\u043e \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u0441"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u0440\u043e\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u044b\u043c \u0440\u0435\u0448\u0435\u043d\u0438\u0435\u043c? \u0421 \u0443\u0447\u0451\u0442\u043e\u043c \u0442\u043e\u0433\u043e, \u0447\u0442\u043e \u043e\u043d \u044d\u0442\u043e \u0441\u0434\u0435\u043b\u0430\u0435\u0442 \u0437\u0430 \u0434\u0432\u0435 \u043d\u0435\u0434\u0435\u043b\u0438 \u0437\u0430 \u0437\u0430\u0447\u0451\u0442 \u043f\u043e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044e."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u0430\u043a \u043e\u043a\u0430\u0437\u0430\u043b\u043e\u0441\u044c, \u043c\u043e\u0436\u0435\u0442, \u043d\u043e \u0441 \u043d\u044e\u0430\u043d\u0441\u0430\u043c\u0438."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u0435\u0434\u0438\u0441\u043b\u043e\u0432\u0438\u0435"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041e\u0431\u0443\u0447\u0430\u044f\u0441\u044c \u0432 "
+      },
+      {
+        "type": "strong",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0420\u0422\u0423 \u041c\u0418\u0420\u042d\u0410"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "raw": ", \u043d\u0430 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u0430\u044f \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0438\u044f \u044f \u043f\u043e\u043f\u0430\u043b \u043d\u0430 \u0441\u0435\u043c\u0435\u0441\u0442\u0440\u043e\u0432\u044b\u0439 \u043a\u0443\u0440\u0441 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u043d\u0430 \u041f\u0438\u0442\u043e\u043d\u0435."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u041f\u0438\u0442\u043e\u043d \u044f \u0437\u043d\u0430\u043b \u0434\u043e \u044d\u0442\u043e\u0433\u043e, \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u043d\u0435 \u0445\u043e\u0442\u0435\u043b\u043e\u0441\u044c \u043c\u043d\u043e\u0433\u043e \u0441 \u043d\u0438\u043c \u0432\u043e\u0437\u0438\u0442\u044c\u0441\u044f. \u0411\u043b\u0430\u0433\u043e \u0442\u0432\u043e\u0440\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u043e\u0432 \u043f\u043e\u043e\u0449\u0440\u044f\u0435\u0442\u0441\u044f, \u0438\u043d\u043e\u0433\u0434\u0430"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0434\u0430\u0436\u0435 \"\u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0430\u043c\u0438\". \u0421\u043e\u0431\u0441\u0442\u0432\u0435\u043d\u043d\u043e, \u0441\u0442\u0438\u043c\u0443\u043b\u0438\u0440\u0443\u0435\u043c\u044b\u0439 \u044d\u0442\u0438\u043c \"\u0430\u0432\u0442\u043e\u043c\u0430\u0442\u043e\u043c\" \u0438 \u0442\u044f\u0433\u043e\u0439 \u043a \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u044b\u0445 \u043c\u043e\u0434\u0443\u043b\u0435\u0439"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u044f \u043d\u0430\u043f\u0438\u0441\u0430\u043b JIT-\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043d\u0430\u0437\u0432\u0430\u043b "
+      },
+      {
+        "type": "emphasis",
+        "children": [
+          {
+            "type": "text",
+            "raw": "MetaStruct"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "raw": "."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421 \u043a\u043e\u0434\u043e\u043c \u043f\u0440\u043e\u0435\u043a\u0442\u0430 \u043c\u043e\u0436\u043d\u043e \u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u0442\u044c\u0441\u044f \u0432 "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438"
+          }
+        ],
+        "attrs": {
+          "url": "https://github.com/PenzaStreetGames/MetaStruct.git"
+        }
+      },
+      {
+        "type": "text",
+        "raw": "."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u041f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0439 \u043c\u043e\u0439 \u043e\u043f\u044b\u0442"
+          }
+        ],
+        "attrs": {
+          "url": "https://github.com/PenzaStreetGames/Yo.git"
+        }
+      },
+      {
+        "type": "text",
+        "raw": " \u0432 \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u0438 \u043d\u0438\u0437\u043a\u043e\u0443\u0440\u043e\u0432\u043d\u0435\u0432\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c \u043e\u043a\u0430\u0437\u0430\u043b\u0441\u044f"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043d\u0435\u0436\u0438\u0437\u043d\u0435\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u044b\u043c \u0438 \u0432\u0435\u0441\u044c\u043c\u0430 \u043f\u043e\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u043c. \u041d\u043e \u043e\u0431 \u044d\u0442\u043e\u043c \u0441\u0435\u0433\u043e\u0434\u043d\u044f \u0440\u0435\u0447\u044c \u043d\u0435 \u043f\u043e\u0439\u0434\u0451\u0442."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u0430\u044f \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f Python - CPython - \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043c\u0435\u0434\u043b\u0435\u043d\u043d\u0430\u044f. \u0412 \u0441\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u0438 \u0441 C++ \u043d\u0430\u0437\u044b\u0432\u0430\u044e\u0442 \u0437\u0430\u043c\u0435\u0434\u043b\u0435\u043d\u0438\u0435 \u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "20-30 \u0440\u0430\u0437"
+          }
+        ],
+        "attrs": {
+          "url": "https://towardsdatascience.com/how-fast-is-c-compared-to-python-978f18f474c7"
+        }
+      },
+      {
+        "type": "text",
+        "raw": "."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u041d\u043e \u0446\u0435\u043b\u043e\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442\u043e\u0432 \u043d\u0430 \u041f\u0438\u0442\u043e\u043d\u0435 \u0433\u043e\u0442\u043e\u0432\u044b \u0437\u0430\u043f\u043b\u0430\u0442\u0438\u0442\u044c \u044d\u0442\u0443 \u0446\u0435\u043d\u0443 \u0440\u0430\u0434\u0438 \u0443\u0434\u043e\u0431\u0441\u0442\u0432\u0430 \u0441\u0438\u043d\u0442\u0430\u043a\u0441\u0438\u0441\u0430, \u0431\u044b\u0441\u0442\u0440\u043e\u0442\u044b"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044f, \u0438\u0437\u044f\u0449\u043d\u043e\u0441\u0442\u0438 \u0438 \u0432\u044b\u0440\u0430\u0437\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u043a\u043e\u0434\u0430."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0430 \u044d\u0442\u043e\u0439 \u043f\u043e\u0447\u0432\u0435 \u043f\u043e\u044f\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u0440\u0430\u0437\u043d\u043e\u043e\u0431\u0440\u0430\u0437\u043d\u044b\u0435 \u0441\u043f\u043e\u0441\u043e\u0431\u044b \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u0438 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c \u043d\u0430 \u041f\u0438\u0442\u043e\u043d\u0435."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0422\u0430\u043a\u0438\u0435 \u0434\u0438\u0430\u043b\u0435\u043a\u0442\u044b \u043a\u0430\u043a "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "Cython"
+          }
+        ],
+        "attrs": {
+          "url": "https://cython.org/"
+        }
+      },
+      {
+        "type": "text",
+        "raw": ", "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "RPython"
+          }
+        ],
+        "attrs": {
+          "url": "https://rpython.readthedocs.io/en/latest/"
+        }
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u044b\u0442\u0430\u044e\u0442\u0441\u044f \u0440\u0435\u0448\u0438\u0442\u044c \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u0443 \"\u0440\u0430\u0437\u0433\u043e\u043d\u0430\" \u041f\u0438\u0442\u043e\u043d\u0430 \u0437\u0430 \u0441\u0447\u0451\u0442 \u0441\u0442\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0442\u0438\u043f\u0438\u0437\u0430\u0446\u0438\u0438 \u0438 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u0438 \u043c\u043e\u0434\u0443\u043b\u0435\u0439."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 JIT-\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u0438 \u043f\u0440\u043e\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u044b\u043c \u0440\u0435\u0448\u0435\u043d\u0438\u0435\u043c \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043f\u0440\u043e\u0435\u043a\u0442 "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "Numba"
+          }
+        ],
+        "attrs": {
+          "url": "https://numba.pydata.org/"
+        }
+      },
+      {
+        "type": "text",
+        "raw": ", \u0441\u043f\u043e\u043d\u0441\u0438\u0440\u0443\u0435\u043c\u044b\u0439"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0442\u0430\u043a\u0438\u043c\u0438 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u043c\u0438 \u0433\u0438\u0433\u0430\u043d\u0442\u0430\u043c\u0438 \u043a\u0430\u043a Intel, AMD \u0438 NVIDIA. \u0418\u043c\u0435\u043d\u043d\u043e \u0441 \u044d\u0442\u0438\u043c \u043f\u0430\u043a\u0435\u0442\u043e\u043c \u043c\u043d\u0435 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u043b\u0438 \u0438 \u043f\u043e\u0441\u043e\u0440\u0435\u0432\u043d\u043e\u0432\u0430\u0442\u044c\u0441\u044f,"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043d\u0430\u043f\u0438\u0441\u0430\u0432 \u043c\u0438\u043d\u0438\u0430\u0442\u044e\u0440\u043d\u044b\u0439 JIT-\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c \u043d\u0430 \u041f\u0438\u0442\u043e\u043d\u0435."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412 \u044d\u0442\u043e\u0439 \u0441\u0442\u0430\u0442\u044c\u0435 \u044f \u0445\u043e\u0447\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c, \u0441 \u043a\u0430\u043a\u0438\u043c\u0438 \u0442\u0440\u0443\u0434\u043d\u043e\u0441\u0442\u044f\u043c\u0438 \u044f, \u043a\u0430\u043a \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0438\u043a\u043b\u0430\u0434\u043d\u043e\u0439, \u0441\u0442\u043e\u043b\u043a\u043d\u0443\u043b\u0441\u044f"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u0440\u0438 \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u0438 \u0442\u0430\u043a\u043e\u0439 \u0434\u043e\u0432\u043e\u043b\u044c\u043d\u043e \u043d\u0438\u0437\u043a\u043e\u0443\u0440\u043e\u0432\u043d\u0435\u0432\u043e\u0439 \u0432\u0435\u0449\u0438, \u043a\u0430\u043a \u043c\u0438\u043d\u0438\u0430\u0442\u044e\u0440\u043d\u044b\u0439 JIT-\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u0438\u043d\u0446\u0438\u043f \u0440\u0430\u0431\u043e\u0442\u044b"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "image",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0410\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u0430"
+          }
+        ],
+        "attrs": {
+          "url": "https://habrastorage.org/webt/ib/yb/-3/ibyb-3rdjj6gw9vr_c2lf4a8k60.png"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0430 \u0441\u0445\u0435\u043c\u0435 \u0432\u044b\u0448\u0435 \u043f\u043e\u043a\u0430\u0437\u0430\u043d\u043e, \u043a\u0430\u043a\u0438\u0435 \u044d\u0442\u0430\u043f\u044b \u043f\u0440\u043e\u0445\u043e\u0434\u0438\u0442 \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u043d\u0430 \u041f\u0438\u0442\u043e\u043d\u0435, \u0441\u0442\u0430\u043d\u043e\u0432\u044f\u0441\u044c \u0441\u043a\u043e\u043c\u043f\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u043c \u043c\u043e\u0434\u0443\u043b\u0435\u043c \u043d\u0430 \u0421++:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "list",
+    "children": [
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0424\u0443\u043d\u043a\u0446\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u043c\u044b \u0445\u043e\u0442\u0438\u043c \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c, \u043f\u043e\u043c\u0435\u0447\u0430\u0435\u0442\u0441\u044f \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u0435\u0439 "
+              },
+              {
+                "type": "codespan",
+                "raw": "@jit"
+              },
+              {
+                "type": "text",
+                "raw": ", \u043f\u0440\u0438\u043c\u0435\u0440\u043d\u043e \u0442\u0430\u043a:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tight": true,
+    "bullet": ".",
+    "depth": 0,
+    "attrs": {
+      "ordered": true
+    }
+  },
+  {
+    "type": "block_code",
+    "raw": "@jit\ndef sum(x: int, y: int) -> int:\n    res: int = x + y\n    return res\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "list",
+    "children": [
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0410\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u044f, \u043f\u043e\u043b\u0443\u0447\u0430\u044f \u043e\u0431\u044a\u0435\u043a\u0442 \u0444\u0443\u043d\u043a\u0446\u0438\u0438, \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "link",
+                "children": [
+                  {
+                    "type": "codespan",
+                    "raw": "inspect.getsource(func_object)"
+                  }
+                ],
+                "attrs": {
+                  "url": "https://docs.python.org/3/library/inspect.html#inspect.getsource"
+                }
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0442\u0435\u043a\u0441\u0442 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0432 \u0432\u0438\u0434\u0435 \u0441\u0442\u0440\u043e\u043a\u0438."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0421 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u0438"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "link",
+                "children": [
+                  {
+                    "type": "codespan",
+                    "raw": "ast.parse(func_py_text)"
+                  }
+                ],
+                "attrs": {
+                  "url": "https://docs.python.org/3/library/ast.html#ast.parse"
+                }
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u0442\u0435\u043a\u0441\u0442 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044f \u0432 \u0430\u0431\u0441\u0442\u0440\u0430\u043a\u0442\u043d\u043e\u0435 \u0441\u0438\u043d\u0442\u0430\u043a\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0434\u0435\u0440\u0435\u0432\u043e (AST) \u044f\u0437\u044b\u043a\u0430 \u041f\u0438\u0442\u043e\u043d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041c\u043e\u044f \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430 \u043f\u0440\u043e\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u043f\u043e \u0434\u0435\u0440\u0435\u0432\u0443 \u0447\u0435\u0440\u0435\u0437 \u043c\u0435\u0442\u043e\u0434 "
+              },
+              {
+                "type": "codespan",
+                "raw": "visit()"
+              },
+              {
+                "type": "text",
+                "raw": ", \u043d\u0430\u0441\u043b\u0435\u0434\u0443\u044f\u0441\u044c \u043e\u0442"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "link",
+                "children": [
+                  {
+                    "type": "codespan",
+                    "raw": "ast.NodeVisitor"
+                  }
+                ],
+                "attrs": {
+                  "url": "https://docs.python.org/3/library/ast.html#ast.NodeVisitor"
+                }
+              },
+              {
+                "type": "text",
+                "raw": ","
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u043d\u0430 \u0432\u044b\u0445\u043e\u0434\u0435 \u0442\u0435\u043a\u0441\u0442 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b \u043d\u0430 C++, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0437\u0430\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0432 \u0444\u0430\u0439\u043b. \u0414\u043b\u044f \u043f\u0440\u0438\u043c\u0435\u0440\u0430 \u0432\u044b\u0448\u0435, \u043e\u043d \u0431\u0443\u0434\u0435\u0442"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u043f\u0440\u0438\u043c\u0435\u0440\u043d\u043e \u0442\u0430\u043a\u0438\u043c:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tight": true,
+    "bullet": ".",
+    "depth": 0,
+    "attrs": {
+      "ordered": true,
+      "start": 2
+    }
+  },
+  {
+    "type": "block_code",
+    "raw": "extern \"C\" int sum(int x, int y) {\n    int res = (x + y);\n    return res;\n}\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "cpp"
+    }
+  },
+  {
+    "type": "list",
+    "children": [
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0427\u0435\u0440\u0435\u0437"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "link",
+                "children": [
+                  {
+                    "type": "codespan",
+                    "raw": "subprocess.run()"
+                  }
+                ],
+                "attrs": {
+                  "url": "https://docs.python.org/3/library/subprocess.html#subprocess.run"
+                }
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u043f\u0440\u043e\u0438\u0441\u0445\u043e\u0434\u0438\u0442 \u0432\u044b\u0437\u043e\u0432 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440\u0430 "
+              },
+              {
+                "type": "link",
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "g++"
+                  }
+                ],
+                "attrs": {
+                  "url": "https://gcc.gnu.org/releases.html"
+                }
+              },
+              {
+                "type": "text",
+                "raw": ", \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0432\u044b\u0434\u0430\u0451\u0442 \u0434\u0438\u043d\u0430\u043c\u0438\u0447\u0435\u0441\u043a\u0438 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0430\u0435\u043c\u0443\u044e"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0443 (\u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0441\u0442\u0438 \u043e\u0442 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u044b \u0444\u0430\u0439\u043b\u043e\u043c "
+              },
+              {
+                "type": "codespan",
+                "raw": ".dll"
+              },
+              {
+                "type": "text",
+                "raw": " \u0438\u043b\u0438 "
+              },
+              {
+                "type": "codespan",
+                "raw": ".so"
+              },
+              {
+                "type": "text",
+                "raw": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tight": true,
+    "bullet": ".",
+    "depth": 0,
+    "attrs": {
+      "ordered": true,
+      "start": 5
+    }
+  },
+  {
+    "type": "block_code",
+    "raw": "g++ -O2 -c source.cpp -o object.o\ng++ -shared object.o -o lib.dll\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "shell"
+    }
+  },
+  {
+    "type": "list",
+    "children": [
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041f\u0440\u0438 \u043f\u043e\u043c\u043e\u0449\u0438 \u0432\u044b\u0437\u043e\u0432\u0430"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "link",
+                "children": [
+                  {
+                    "type": "codespan",
+                    "raw": "ctypes.LibraryLoader(CDLL).LoadLibrary(dll_filename)"
+                  }
+                ],
+                "attrs": {
+                  "url": "https://docs.python.org/3/library/ctypes.html#loading-dynamic-link-libraries"
+                }
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u0414\u0438\u043d\u0430\u043c\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0430\u0435\u0442\u0441\u044f \u043a \u0441\u0440\u0435\u0434\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f \u0438 \u0434\u0430\u0451\u0442 \u0434\u043e\u0441\u0442\u0443\u043f \u043a \u0441\u043a\u043e\u043c\u043f\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u043c\u0443 \u0432\u0430\u0440\u0438\u0430\u043d\u0442\u0443 \u0438\u0441\u0445\u043e\u0434\u043d\u043e\u0439 \u0444\u0443\u043d\u043a\u0446\u0438\u0438."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041a\u043e\u043d\u0435\u0447\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c, \u0434\u043e\u0431\u0430\u0432\u0438\u0432\u0448\u0438\u0439 \u043d\u0430\u0434 \u0444\u0443\u043d\u043a\u0446\u0438\u0435\u0439 \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u044e "
+              },
+              {
+                "type": "codespan",
+                "raw": "@jit"
+              },
+              {
+                "type": "text",
+                "raw": ", \u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0441\u044f \u0441\u043e\u0432\u0435\u0440\u0448\u0435\u043d\u043d\u043e \u0434\u0440\u0443\u0433\u0438\u043c"
+              },
+              {
+                "type": "softbreak"
+              },
+              {
+                "type": "text",
+                "raw": "\u0432\u0430\u0440\u0438\u0430\u043d\u0442\u043e\u043c \u0441\u0432\u043e\u0435\u0433\u043e \u043a\u043e\u0434\u0430, \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u043f\u043e\u0434\u043e\u0437\u0440\u0435\u0432\u0430\u044f."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tight": true,
+    "bullet": ".",
+    "depth": 0,
+    "attrs": {
+      "ordered": true,
+      "start": 6
+    }
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u0442\u0440\u0443\u0434\u043e\u0451\u043c\u043a\u0438\u0439 \u0434\u043b\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0441\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0438\u0437 \u043f\u0440\u0438\u043c\u0435\u0440\u0430, \u043d\u043e \u043f\u0440\u0438 \u0447\u0430\u0441\u0442\u044b\u0445 \u0432\u044b\u0437\u043e\u0432\u0430\u0445 \u0438 \u0431\u043e\u043b\u044c\u0448\u043e\u043c \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u0435 \u0432\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0439"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0432\u043d\u0443\u0442\u0440\u0438 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0432\u0440\u0435\u043c\u044f \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u0438 \u043e\u043a\u0443\u043f\u0430\u0435\u0442\u0441\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0415\u0441\u043b\u0438 \u0431\u044b \u044d\u0442\u043e \u0431\u044b\u043b \u043d\u0435 \u041f\u0438\u0442\u043e\u043d, \u0430 \u043a\u0430\u043a\u043e\u0439-\u043d\u0438\u0431\u0443\u0434\u044c \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u043d\u043e-\u043e\u0440\u0438\u0435\u043d\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u044f\u0437\u044b\u043a, \u0442\u043e \u043f\u0440\u0438\u0448\u043b\u043e\u0441\u044c \u0431\u044b \u043f\u0438\u0441\u0430\u0442\u044c \u043f\u0430\u0440\u0441\u0435\u0440 \u0438 \u043e\u0431\u0445\u043e\u0434 \u043f\u043e\u043b\u0443\u0447\u0438\u0432\u0448\u0435\u0433\u043e\u0441\u044f"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0430\u0431\u0441\u0442\u0440\u0430\u043a\u0442\u043d\u043e\u0433\u043e \u0434\u0435\u0440\u0435\u0432\u0430, \u0438 \u0440\u0435\u0448\u0435\u043d\u0438\u0435 \u043d\u0435 \u0431\u044b\u043b\u043e \u0431\u044b \u0443\u0436\u0435 \u0442\u0430\u043a\u0438\u043c \u043a\u043e\u0440\u043e\u0442\u043a\u0438\u043c. \u041d\u043e \u0432 \u043c\u043e\u0451\u043c \u0441\u043b\u0443\u0447\u0430\u0435, \u0438\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u041f\u0438\u0442\u043e\u043d\u0430 \u0438 \u0435\u0433\u043e \u0433\u0438\u0431\u043a\u043e\u0441\u0442\u044c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0441\u044b\u0433\u0440\u0430\u043b\u0438 \u043c\u043d\u0435 \u043d\u0430 \u0440\u0443\u043a\u0443."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u043f\u0435\u0447\u0430\u0442\u043b\u044f\u044e\u0449\u0438\u0435 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0430\u0432\u0435\u0440\u043d\u043e\u0435, \u0441\u0442\u043e\u0438\u0442 \u043e\u0442 \u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0447\u0430\u0441\u0442\u0438 \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0438\u0442\u044c \u043a \u0447\u0430\u0441\u0442\u0438 \u0432\u0438\u0437\u0443\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438 \u0438 \u043c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433\u0430."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421\u043e\u0437\u0434\u0430\u043d\u043d\u044b\u0439 \u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c JIT-\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u0438 \u0431\u044b\u043b \u043f\u0440\u043e\u0442\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d \u043d\u0430 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u0438\u0445 \u043f\u0440\u043e\u0441\u0442\u044b\u0445 \u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0437\u0430\u0434\u0430\u0447\u0430\u0445:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "list",
+    "children": [
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0421\u0443\u043c\u043c\u0430 \u0434\u0432\u0443\u0445 \u0447\u0438\u0441\u0435\u043b"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0425\u0435\u0448-\u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0434\u043b\u044f \u0446\u0435\u043b\u044b\u0445 \u0447\u0438\u0441\u0435\u043b"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0412\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0435 \u044d\u043a\u0441\u043f\u043e\u043d\u0435\u043d\u0442\u044b \u0447\u0435\u0440\u0435\u0437 \u0440\u044f\u0434 \u0422\u0435\u0439\u043b\u043e\u0440\u0430"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0427\u0438\u0441\u043b\u0430 \u0424\u0438\u0431\u043e\u043d\u0430\u0447\u0447\u0438"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tight": true,
+    "bullet": "*",
+    "depth": 0,
+    "attrs": {
+      "ordered": false
+    }
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421 \u0440\u0430\u0441\u0447\u0451\u0442\u0430\u043c\u0438 \u0438 \u0433\u0440\u0430\u0444\u0438\u043a\u0430\u043c\u0438 \u043c\u043e\u0436\u043d\u043e \u043f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435 \u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u0442\u044c\u0441\u044f \u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "Jupyter-\u0431\u043b\u043e\u043a\u043d\u043e\u0442\u0435"
+          }
+        ],
+        "attrs": {
+          "url": "https://github.com/PenzaStreetGames/MetaStruct/blob/main/performance.ipynb"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0414\u043b\u044f \u043e\u0446\u0435\u043d\u043a\u0438 \u0432\u0440\u0435\u043c\u0435\u043d\u0438 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u044b \u0444\u0443\u043d\u043a\u0446\u0438\u0438 "
+      },
+      {
+        "type": "codespan",
+        "raw": "timeit()"
+      },
+      {
+        "type": "text",
+        "raw": " \u0438 "
+      },
+      {
+        "type": "codespan",
+        "raw": "repeat()"
+      },
+      {
+        "type": "text",
+        "raw": " \u043c\u043e\u0434\u0443\u043b\u044f "
+      },
+      {
+        "type": "codespan",
+        "raw": "timeit"
+      },
+      {
+        "type": "text",
+        "raw": "."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0414\u043b\u044f \u043e\u0442\u0440\u0438\u0441\u043e\u0432\u043a\u0438 \u0433\u0440\u0430\u0444\u0438\u043a\u043e\u0432 - \u043c\u043e\u0434\u0443\u043b\u044c "
+      },
+      {
+        "type": "codespan",
+        "raw": "matplotlib"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412 \u043f\u0440\u0438\u043c\u0435\u0440\u0430\u0445 \u0431\u0443\u0434\u0443\u0442 \u0441\u0440\u0430\u0432\u043d\u0438\u0432\u0430\u0442\u044c\u0441\u044f \u0442\u0440\u0438 \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438 \u0444\u0443\u043d\u043a\u0446\u0438\u0439:"
+      }
+    ]
+  },
+  {
+    "type": "list",
+    "children": [
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041f\u0440\u043e\u0441\u0442\u043e \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u043f\u0438\u0442\u043e\u043d\u0430"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041e\u043f\u0442\u0438\u043c\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0445 \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u0435\u0439 "
+              },
+              {
+                "type": "codespan",
+                "raw": "@jit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041e\u043f\u0442\u0438\u043c\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0445 \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u0435\u0439 "
+              },
+              {
+                "type": "codespan",
+                "raw": "@numba.jit"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tight": true,
+    "bullet": "*",
+    "depth": 0,
+    "attrs": {
+      "ordered": false
+    }
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421\u0443\u043c\u043c\u0430 \u0434\u0432\u0443\u0445 \u0447\u0438\u0441\u0435\u043b"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "image",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043c\u043d\u043e\u0433\u043e\u043a\u0440\u0430\u0442\u043d\u043e\u0433\u043e \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f, \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0441\u0443\u043c\u043c\u044b"
+          }
+        ],
+        "attrs": {
+          "url": "https://habrastorage.org/webt/gu/j4/kx/guj4kxpgtln4hzrxcb-13g8pf24.png"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def py_sum(x: int, y: int) -> int:\n    res: int = x + y\n    return res\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0430 \u0437\u0430\u0434\u0430\u0447\u0435 \u0441\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0434\u0432\u0443\u0445 \u0446\u0435\u043b\u044b\u0445 \u0447\u0438\u0441\u0435\u043b \u043d\u0438\u043a\u0430\u043a\u043e\u0439 \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u0438 \u043d\u0435 \u0432\u0438\u0434\u043d\u043e, \u0434\u0430\u0436\u0435 \u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442. \u041d\u0430\u043a\u043b\u0430\u0434\u043d\u044b\u0435 \u0440\u0430\u0441\u0445\u043e\u0434\u044b \u043d\u0430 \u0432\u044b\u0437\u043e\u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0438\u0437 dll-\u0444\u0430\u0439\u043b\u0430 \u0438 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u0430 \u0437\u0430\u043d\u0438\u043c\u0430\u0435\u0442 \u043c\u043d\u043e\u0433\u043e \u0432\u0440\u0435\u043c\u0435\u043d\u0438 \u043f\u043e \u0441\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u044e \u0441 \u0441\u0430\u043c\u0438\u043c\u0438 \u0440\u0430\u0441\u0447\u0451\u0442\u0430\u043c\u0438. Numba \u043e\u0431\u0441\u0442\u0430\u0432\u0438\u043b\u0430"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043c\u043e\u0435\u0433\u043e \"\u043f\u0438\u0442\u043e\u043c\u0446\u0430\" \u0432 3 \u0440\u0430\u0437\u0430 \u043d\u0430 \u044d\u0442\u043e\u043c \u043f\u0440\u0438\u043c\u0435\u0440\u0435."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0425\u0435\u0448-\u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0434\u043b\u044f \u0446\u0435\u043b\u044b\u0445 \u0447\u0438\u0441\u0435\u043b"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "image",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043c\u043d\u043e\u0433\u043e\u043a\u0440\u0430\u0442\u043d\u043e\u0433\u043e \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f, \u0445\u0435\u0448-\u0444\u0443\u043d\u043a\u0446\u0438\u044f"
+          }
+        ],
+        "attrs": {
+          "url": "https://habrastorage.org/webt/tr/pr/mu/trprmuutfawoh36iib0bxsnq5x0.png"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041e\u0431\u044b\u0447\u043d\u043e, \u0434\u043b\u044f \u0447\u0438\u0441\u0435\u043b \u0438\u0437 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u043e\u0433\u043e \u0434\u0438\u0430\u043f\u0430\u0437\u043e\u043d\u0430 \u0432 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0435 \u0445\u0435\u0448\u0430 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044e\u0442 \u0438\u0445 \u0441\u0430\u043c\u0438\u0445. \u041e\u0434\u043d\u0430\u043a\u043e \u043d\u0430 \u043f\u0440\u043e\u0441\u0442\u043e\u0440\u0430\u0445 \u0418\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u044f \u043d\u0430\u0448\u0451\u043b \u0442\u0430\u043a\u0443\u044e"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0445\u0435\u0448-\u0444\u0443\u043d\u043a\u0446\u0438\u044e"
+          }
+        ],
+        "attrs": {
+          "url": "https://qastack.ru/programming/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key"
+        }
+      },
+      {
+        "type": "text",
+        "raw": ":"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def py_hash(x: int) -> int:\n    x = ((x >> 16) ^ x) * 0x45d9f3b\n    x = ((x >> 16) ^ x) * 0x45d9f3b\n    x = (x >> 16) ^ x\n    return x\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0410\u0432\u0442\u043e\u0440\u043e\u043c \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f \u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 "
+      },
+      {
+        "type": "codespan",
+        "raw": "0x45d9f3b"
+      },
+      {
+        "type": "text",
+        "raw": " \u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0434\u043e\u0441\u0442\u0438\u0447\u044c \u043d\u0430\u0438\u0431\u043e\u043b\u044c\u0448\u0435\u0439 \"\u0441\u043b\u0443\u0447\u0430\u0439\u043d\u043e\u0441\u0442\u0438\" \u0431\u0438\u0442 \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430. \u041f\u043e"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043a\u0440\u0430\u0439\u043d\u0435\u0439 \u043c\u0435\u0440\u0435 \u0434\u043b\u044f \u0445\u0435\u0448-\u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u0442\u0430\u043a\u043e\u0433\u043e \u0432\u0438\u0434\u0430."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "Numba \u043e\u043a\u0430\u0437\u0430\u043b\u0430\u0441\u044c \u0445\u043e\u0440\u043e\u0448\u043e \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u0439 \u043f\u043e\u0434 \u0431\u0438\u0442\u043e\u0432\u044b\u0435 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438. \u041d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u043f\u043e\u043d\u044f\u0442\u043d\u043e, \u043e\u0442\u043a\u0443\u0434\u0430 \u043e\u043d\u0430 \u0432\u0437\u044f\u043b\u0430\u0441\u044c. \u041e\u0441\u0442\u0430\u0432\u0438\u043c \u044d\u0442\u043e\u0442 \u0432\u043e\u043f\u0440\u043e\u0441"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043e\u0442\u043a\u0440\u044b\u0442\u044b\u043c, \u043d\u043e \u043c\u043d\u0435 \u043a\u0430\u0436\u0435\u0442\u0441\u044f, \u0441\u043f\u043e\u043d\u0441\u043e\u0440\u0441\u0442\u0432\u043e \u0433\u043b\u0430\u0432\u043d\u044b\u0445 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0440\u043e\u0432 \u0438 \u0432\u0438\u0434\u0435\u043e\u043a\u0430\u0440\u0442 \u043d\u0435 \u043f\u0440\u043e\u0448\u043b\u043e \u0434\u0430\u0440\u043e\u043c."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u041c\u043e\u0439 \u0436\u0435 \u0432\u0430\u0440\u0438\u0430\u043d\u0442 \u043e\u043a\u0430\u0437\u0430\u043b\u0441\u044f \u0441\u043b\u0435\u0433\u043a\u0430 \u0431\u044b\u0441\u0442\u0440\u0435\u0435 \u043f\u0440\u043e\u0441\u0442\u043e\u0433\u043e \u041f\u0438\u0442\u043e\u043d\u0430."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0435 \u044d\u043a\u0441\u043f\u043e\u043d\u0435\u043d\u0442\u044b \u0447\u0435\u0440\u0435\u0437 \u0440\u044f\u0434 \u0422\u0435\u0439\u043b\u043e\u0440\u0430"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "image",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043c\u043d\u043e\u0433\u043e\u043a\u0440\u0430\u0442\u043d\u043e\u0433\u043e \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f, \u044d\u043a\u0441\u043f\u043e\u043d\u0435\u043d\u0442\u0430 (3)"
+          }
+        ],
+        "attrs": {
+          "url": "https://habrastorage.org/webt/jh/ly/th/jhlythqsrmppqqvw-cxgmth156w.png"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0438\u0442\u043e\u043d \u044f\u0432\u043d\u043e \u043f\u043e\u043a\u0430\u0437\u0430\u043b \u0441\u0435\u0431\u044f \u043d\u0435\u0432\u0430\u0436\u043d\u043e, \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u043f\u043e\u0441\u043c\u043e\u0442\u0440\u0438\u043c \u043d\u0430 \u0434\u0432\u0443\u0445 \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0442\u043e\u0440\u043e\u0432 \u043e\u0442\u0434\u0435\u043b\u044c\u043d\u043e."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "image",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043c\u043d\u043e\u0433\u043e\u043a\u0440\u0430\u0442\u043d\u043e\u0433\u043e \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f, \u044d\u043a\u0441\u043f\u043e\u043d\u0435\u043d\u0442\u0430 (2)"
+          }
+        ],
+        "attrs": {
+          "url": "https://habrastorage.org/webt/zx/rd/x7/zxrdx7gopltra0dwefwijc0bbew.png"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421\u0442\u0440\u0430\u043d\u043d\u043e\u0435 \u0431\u043e\u043b\u044c\u0448\u043e\u0435 \u0432\u0440\u0435\u043c\u044f \u0434\u043b\u044f \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u043e\u0433\u043e x, \u0432\u044b\u044f\u0441\u043d\u0438\u043b\u043e\u0441\u044c, \u043e\u0431\u043e\u0441\u043d\u043e\u0432\u0430\u043d\u043e \u0442\u0435\u043c, \u0447\u0442\u043e Numba \u0434\u0435\u043b\u0430\u0435\u0442 \u043a\u0430\u043a\u0438\u0435-\u0442\u043e \u043e\u0442\u043b\u043e\u0436\u0435\u043d\u043d\u044b\u0435 \u0448\u0430\u0433\u0438"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u0438 \u043f\u0440\u0438 \u043f\u0435\u0440\u0432\u043e\u043c \u0437\u0430\u043f\u0443\u0441\u043a\u0435. \u041d\u0430 \u043e\u0431\u0449\u0435\u0439 \u0435\u0451 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u044d\u0442\u043e \u043f\u043e\u0447\u0442\u0438 \u043d\u0438\u043a\u0430\u043a \u043d\u0435 \u0441\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442\u0441\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def py_exp(x: float) -> float:\n    res: float = 0\n    threshold: float = 1e-30\n    delta: float = 1\n    elements: int = 0\n    while delta > threshold:\n        elements = elements + 1\n        delta = delta * x / elements\n    while elements >= 0:\n        res += delta\n        delta = delta * elements / x\n        elements -= 1\n    return res\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u043e\u043c\u0443 \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u0435\u043d \u043c\u0430\u0442\u0430\u043d, \u044d\u043a\u0441\u043f\u043e\u043d\u0435\u043d\u0442\u0430 \u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0441\u044f \u043f\u043e \u0444\u043e\u0440\u043c\u0443\u043b\u0435 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u0440\u044f\u0434\u0430 \u0422\u0435\u0439\u043b\u043e\u0440\u0430:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "inline_math",
+        "raw": "e^x = \\displaystyle\\sum_{n=0}^\\infty \\frac{x^n}{n!}"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0410\u043b\u0433\u043e\u0440\u0438\u0442\u043c \u043f\u0440\u0435\u043a\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044f, \u043a\u043e\u0433\u0434\u0430 \u0440\u0430\u0437\u043d\u0438\u0446\u0430 \u043c\u0435\u0436\u0434\u0443 \u0434\u0435\u043b\u044c\u0442\u0430\u043c\u0438 \u0434\u0432\u0443\u0445 \u0438\u0442\u0435\u0440\u0430\u0446\u0438\u0439 \u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u0441\u044f \u043c\u0435\u043d\u044c\u0448\u0435 \u043f\u043e\u0440\u043e\u0433\u0430, \u043b\u0438\u0431\u043e \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044f \u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043c\u0430\u0448\u0438\u043d\u043d\u044b\u0439 \u043d\u043e\u043b\u044c. \u0421\u0443\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0438\u0441\u0445\u043e\u0434\u0438\u0442 \u043e\u0442 \u043c\u0435\u043d\u044c\u0448\u0438\u0445 \u0447\u043b\u0435\u043d\u043e\u0432 \u043a \u0431\u043e\u043b\u044c\u0448\u0438\u043c \u0434\u043b\u044f \u0443\u043c\u0435\u043d\u044c\u0448\u0435\u043d\u0438\u044f \u043f\u043e\u0442\u0435\u0440\u044c \u0442\u043e\u0447\u043d\u043e\u0441\u0442\u0438."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0430\u043a\u043e\u043d\u0435\u0446-\u0442\u043e \u043c\u043e\u0451 \u0442\u0432\u043e\u0440\u0435\u043d\u0438\u0435 \u043d\u0430\u0447\u0430\u043b\u043e \u0441\u043e\u043f\u0435\u0440\u043d\u0438\u0447\u0430\u0442\u044c \u0441 Numba. \u041d\u0430 \u0431\u043e\u043b\u044c\u0448\u0438\u0445 \u043e\u0431\u044a\u0451\u043c\u0430\u0445 \u0432\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0439 \u043e\u0434\u043d\u043e\u0437\u043d\u0430\u0447\u043d\u043e\u0433\u043e \u043b\u0438\u0434\u0435\u0440\u0430 \u043d\u0435\u0442."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0427\u0438\u0441\u043b\u0430 \u0424\u0438\u0431\u043e\u043d\u0430\u0447\u0447\u0438"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "image",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f, \u0447\u0438\u0441\u043b\u0430 \u0424\u0438\u0431\u043e\u043d\u0430\u0447\u0447\u0438 (3)"
+          }
+        ],
+        "attrs": {
+          "url": "https://habrastorage.org/webt/-r/-g/6c/-r-g6ckckxabt6bxgo_yxxgvk3s.png"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def fib(n: int) -> int:\n    if n < 2:\n        return 1\n    return fib(n - 1) + fib(n - 2)\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0435\u0441\u043c\u043e\u0442\u0440\u044f \u043d\u0430 \u0442\u043e, \u0447\u0442\u043e \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u044f \u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u043a\u043e\u043c\u043f\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043f\u043e \u043e\u0434\u043d\u043e\u0439, \u0432 \u043d\u0435\u0439 \u0432\u0441\u0451 \u0435\u0449\u0451 \u043c\u043e\u0436\u043d\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0440\u0435\u043a\u0443\u0440\u0441\u0438\u044e."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0430 \u0440\u0435\u043a\u0443\u0440\u0441\u0438\u0438 \u041f\u0438\u0442\u043e\u043d \u0432\u043e\u043e\u0431\u0449\u0435 \u043f\u0435\u0440\u0435\u0441\u0442\u0430\u043b \u0437\u0430 \u0441\u0435\u0431\u044f \u043e\u0442\u0432\u0435\u0447\u0430\u0442\u044c. \u0427\u0442\u043e \u0442\u0430\u043c \u0441 \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0442\u043e\u0440\u0430\u043c\u0438?"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "image",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f, \u0447\u0438\u0441\u043b\u0430 \u0424\u0438\u0431\u043e\u043d\u0430\u0447\u0447\u0438 (2)"
+          }
+        ],
+        "attrs": {
+          "url": "https://habrastorage.org/webt/ce/n1/b-/cen1b-hk2dfyf_kcqb8qk-ozclk.png"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u043d\u0435\u0437\u0430\u043f\u043d\u043e, \u0440\u0435\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u0430\u044f \u0432 \u043f\u0440\u043e\u0435\u043a\u0442\u0435 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u044f \u043d\u0430\u0447\u0430\u043b\u0430 \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0432 4 \u0440\u0430\u0437\u0430 \u0431\u044b\u0441\u0442\u0440\u0435\u0435, \u0447\u0435\u043c Numba."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u0441 \u0437\u0430\u0434\u0430\u0447\u0430\u043c\u0438 \u0440\u0430\u0437\u0432\u0435\u0442\u043b\u0451\u043d\u043d\u043e\u0439 \u0440\u0435\u043a\u0443\u0440\u0441\u0438\u0438 \u043c\u043e\u0439 JIT-\u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440 \u043d\u0435\u043f\u043b\u043e\u0445\u043e \u0441\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442\u0441\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u042d\u0442\u043e \u043e\u0434\u043d\u043e \u0438\u0437 \u0441\u0430\u043c\u044b\u0445 \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u044b\u0445 \u043c\u0435\u0441\u0442 \u0432\u0441\u0435\u0433\u043e \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u0435 \u043c\u043e\u0436\u043d\u043e \u0431\u044b\u043b\u043e \u0431\u044b \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041c\u044b\u0441\u043b\u0438 \u0441\u0445\u043e\u0434\u044f\u0442\u0441\u044f"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0430 \u0441\u0430\u043c\u043e\u043c \u0434\u0435\u043b\u0435, \u0442\u0430\u043a\u043e\u0439 \u043f\u043e\u0434\u0445\u043e\u0434 \u043a \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u0438 \u043d\u0435 \u043d\u043e\u0432 \u0432 \u043c\u0438\u0440\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f. \u0427\u0435\u043c-\u0442\u043e \u043f\u043e\u0445\u043e\u0436\u0438\u043c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0437\u0430\u043d\u0438\u043c\u0430\u043b\u0441\u044f"
+          }
+        ],
+        "attrs": {
+          "url": "https://vmakarov.fedorapeople.org/VMakarov-RubyKaigi2017.pdf"
+        }
+      },
+      {
+        "type": "text",
+        "raw": " \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u041c\u0430\u043a\u0430\u0440\u043e\u0432,"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0438\u0440\u0443\u044f Ruby \u0434\u043e \u0443\u0440\u043e\u0432\u043d\u044f \u044f\u0437\u044b\u043a\u0430 \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0438 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u043e\u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "RTL"
+          }
+        ],
+        "attrs": {
+          "url": "https://en.wikipedia.org/wiki/Register_transfer_language"
+        }
+      },
+      {
+        "type": "text",
+        "raw": " \u0432 \u0441\u0432\u043e\u0451\u043c \u043f\u0440\u043e\u0435\u043a\u0442\u0435 MJIT."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044e\u0442 \u0434\u0430\u0436\u0435 \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u0438 \u0441\u0434\u0435\u043b\u0430\u043d\u043d\u044b\u0435 \u043f\u043e\u0432\u0435\u0440\u0445 \u0440\u0435\u0448\u0435\u043d\u0438\u044f \u041c\u0430\u043a\u0430\u0440\u043e\u0432\u0430, \u043e \u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u043c\u043e\u0436\u043d\u043e \u043f\u043e\u0447\u0438\u0442\u0430\u0442\u044c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0437\u0434\u0435\u0441\u044c"
+          }
+        ],
+        "attrs": {
+          "url": "https://k0kubun.medium.com/the-method-jit-compiler-for-ruby-2-6-388ee0989c13"
+        }
+      },
+      {
+        "type": "text",
+        "raw": "."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412 \u0447\u0430\u0441\u0442\u043d\u043e\u0441\u0442\u0438, \u0432 \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f\u0445 \u043e\u0442\u043c\u0435\u0447\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u0432\u044b\u0431\u043e\u0440 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440\u0430, \u0431\u0443\u0434\u044c \u0442\u043e GCC \u0438\u043b\u0438 LLVM, \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e \u043d\u0435 \u0441\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u043d\u0430"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438. \u0412 \u043c\u043e\u0451\u043c \u0440\u0435\u0448\u0435\u043d\u0438\u0438 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d g++ \u0438\u0437-\u0437\u0430 \u0431\u043e\u043b\u044c\u0448\u0435\u0439 \u043f\u043e\u0440\u0442\u0438\u0440\u0443\u0435\u043c\u043e\u0441\u0442\u0438 \u0441\u043a\u043e\u043c\u043f\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u0434\u0430."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0414\u043b\u044f \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u044f \u0432\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0439 \u0432 \u043f\u0440\u043e\u0435\u043a\u0442\u0435 Ruby \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044e\u0442\u0441\u044f \u0442\u0430\u043a\u0436\u0435 \u043f\u0440\u0435\u0434\u0441\u043a\u043e\u043c\u043f\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u0437\u0430\u0433\u043e\u043b\u043e\u0432\u043a\u0438. \u041e\u0434\u043d\u0430\u043a\u043e, \u0434\u043b\u044f"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0441\u0442\u0443\u0434\u0435\u043d\u0447\u0435\u0441\u043a\u043e\u0439 \u0440\u0430\u0431\u043e\u0442\u044b \u0442\u0430\u043a\u043e\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u0438 \u043d\u0435 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0435\u043f\u0440\u0435\u0434\u0432\u0438\u0434\u0435\u043d\u043d\u044b\u0435 \u0442\u0440\u0443\u0434\u043d\u043e\u0441\u0442\u0438"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u043e\u043d\u0435\u0447\u043d\u043e \u0436\u0435, \u0432\u0441\u0451 \u0437\u0430\u0440\u0430\u0431\u043e\u0442\u0430\u043b\u043e \u043d\u0435 \u0441 \u043f\u0435\u0440\u0432\u043e\u0433\u043e \u0440\u0430\u0437\u0430. \u0412\u0435\u0440\u043e\u044f\u0442\u043d\u043e, \u0434\u0430\u0436\u0435 \u043d\u0435 \u0441 \u0434\u0435\u0441\u044f\u0442\u043e\u0433\u043e. \u041f\u043e\u044d\u0442\u043e\u043c\u0443 \u0445\u043e\u0442\u0435\u043b\u043e\u0441\u044c \u0431\u044b \u043f\u0440\u0438\u0432\u0435\u0441\u0442\u0438 \u0437\u0434\u0435\u0441\u044c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043d\u0435\u0431\u043e\u043b\u044c\u0448\u0443\u044e \"\u0440\u0430\u0431\u043e\u0442\u0443 \u043d\u0430\u0434 \u043e\u0448\u0438\u0431\u043a\u0430\u043c\u0438\""
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0422\u0438\u043f\u044b \u0434\u0430\u043d\u043d\u044b\u0445"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0438\u0442\u043e\u043d \u043c\u0435\u0434\u043b\u0435\u043d\u043d\u044b\u0439 \u0432\u043e \u043c\u043d\u043e\u0433\u043e\u043c \u0438\u0437-\u0437\u0430 \u0434\u0438\u043d\u0430\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0442\u0438\u043f\u0438\u0437\u0430\u0446\u0438\u0438, \u0442\u0430\u043a \u043a\u0430\u043a \u0434\u043e\u0432\u043e\u043b\u044c\u043d\u043e \u043c\u043d\u043e\u0433\u043e \u0432\u0440\u0435\u043c\u0435\u043d\u0438 \u0443\u0445\u043e\u0434\u0438\u0442 \u043d\u0430"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u0438\u0435 \u0442\u0438\u043f\u0430 \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0439 \u043f\u0435\u0440\u0435\u0434 \u0435\u0451 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435\u043c. \u0422\u0430\u043a\u0436\u0435, \u0438\u0434\u0435\u043e\u043b\u043e\u0433\u0438\u044f \"\u0432\u0441\u0451 \u0435\u0441\u0442\u044c \u043e\u0431\u044a\u0435\u043a\u0442\" \u0440\u0430\u0437\u0434\u0443\u0432\u0430\u0435\u0442 \u043f\u0440\u0438\u043c\u0438\u0442\u0438\u0432\u043d\u044b\u0435 \u0442\u0438\u043f\u044b"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0434\u0430\u043d\u043d\u044b\u0445 \u0434\u043e \u0440\u0430\u0437\u043c\u0435\u0440\u0430 \u043e\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u0445 \u043e\u0431\u044a\u0435\u043a\u0442\u043e\u0432 \u0438 \u043a\u043b\u0430\u0441\u0441\u043e\u0432. \u0427\u0442\u043e\u0431\u044b \u0443\u0441\u043a\u043e\u0440\u0438\u0442\u044c \u0432\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u044f, \u043d\u0443\u0436\u043d\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0438\u043c\u0435\u043d\u043d\u043e \u043f\u0440\u0438\u043c\u0438\u0442\u0438\u0432\u044b,"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0430 \u043d\u0435 \u043e\u0431\u044a\u0435\u043a\u0442\u044b."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u043e\u0431\u043b\u0435\u043c\u0430 \u0432 \u0442\u043e\u043c, \u0447\u0442\u043e \u0438\u0437 \u043a\u043e\u0434\u0430 \u043d\u0430 \u041f\u0438\u0442\u043e\u043d\u0435 \u043d\u0435 \u0432\u0441\u0435\u0433\u0434\u0430 \u043e\u0447\u0435\u0432\u0438\u0434\u043d\u043e, \u043a\u0430\u043a\u043e\u0433\u043e \u0442\u0438\u043f\u0430 \u0431\u0443\u0434\u0435\u0442 \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f. \u041f\u0440\u043e\u0434\u0432\u0438\u043d\u0443\u0442\u044b\u0435 \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0442\u043e\u0440\u044b"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0443\u043c\u0435\u044e\u0442 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u044f\u0442\u044c \u0442\u0438\u043f \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0439 \"\u043d\u0430 \u043b\u0435\u0442\u0443\" \u0438\u0437 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0430. \u042f \u0440\u0435\u0448\u0438\u043b \u043d\u0435 \u0443\u0441\u043b\u043e\u0436\u043d\u044f\u0442\u044c \u0436\u0438\u0437\u043d\u044c "
+      },
+      {
+        "type": "strikethrough",
+        "children": [
+          {
+            "type": "text",
+            "raw": ", \u0430 \u0443\u0441\u043b\u043e\u0436\u043d\u0438\u0442\u044c \u043a\u043e\u0434,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "raw": " \u0438"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u0438 \u0442\u0438\u043f\u043e\u0432."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435 \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u0439 \u0442\u0438\u043f\u043e\u0432 \u0435\u0441\u0442\u044c \u0445\u043e\u0440\u043e\u0448\u0438\u0435 \u0441\u0442\u0430\u0442\u044c\u0438 \u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u043e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0439 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438"
+          }
+        ],
+        "attrs": {
+          "url": "https://docs.python.org/3/library/typing.html"
+        }
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0438\u043b\u0438 \u043d\u0430 "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0425\u0430\u0431\u0440\u0435"
+          }
+        ],
+        "attrs": {
+          "url": "https://habr.com/ru/company/lamoda/blog/432656/"
+        }
+      },
+      {
+        "type": "text",
+        "raw": "."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0443\u0441\u0442\u044c \u043d\u0443\u0436\u043d\u043e \u0441\u043a\u043e\u043c\u043f\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0442\u0443 \u0441\u0430\u043c\u0443\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u044e \u0441\u043b\u043e\u0436\u0435\u043d\u0438\u044f:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def sum(x, y):\n    res = x + y\n    return res\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u0430\u043a\u043e\u0439-\u043d\u0438\u0431\u0443\u0434\u044c \u043a\u043e\u043c\u043f\u0438\u043b\u0438\u0440\u0443\u0435\u043c\u044b\u0439 \u044f\u0437\u044b\u043a, C++ \u043d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, \u0437\u0430 \u0442\u0430\u043a\u0443\u044e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0443 \u0441\u043f\u0430\u0441\u0438\u0431\u043e \u043d\u0435 \u0441\u043a\u0430\u0436\u0435\u0442. \u0414\u043e\u0431\u0430\u0432\u0438\u043c \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u0438:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def sum(x: int, y: int) -> int:\n    res: int = x + y\n    return res\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412 \u044d\u0442\u043e\u043c \u043f\u0440\u0438\u043c\u0435\u0440\u0435 \u044f\u0432\u043d\u043e\u0433\u043e \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f \u0442\u0438\u043f\u043e\u0432 \u0442\u0440\u0435\u0431\u0443\u044e\u0442 \u0442\u0440\u0438 \u0432\u0435\u0449\u0438:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "list",
+    "children": [
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0410\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0444\u0443\u043d\u043a\u0446\u0438\u0438"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0412\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u043c\u043e\u0435 \u0438\u0437 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list_item",
+        "children": [
+          {
+            "type": "block_text",
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u0435 \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0435"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tight": true,
+    "bullet": ".",
+    "depth": 0,
+    "attrs": {
+      "ordered": true
+    }
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438 \u0431\u0443\u0434\u0435\u0442 \u0442\u043e\u043b\u044c\u043a\u043e \u0442\u0440\u0438 \u0442\u0438\u043f\u0430 \u0434\u0430\u043d\u043d\u044b\u0445:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "table",
+    "children": [
+      {
+        "type": "table_head",
+        "children": [
+          {
+            "type": "table_cell",
+            "attrs": {
+              "align": null,
+              "head": true
+            },
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0422\u0438\u043f \u0434\u0430\u043d\u043d\u044b\u0445 Python"
+              }
+            ]
+          },
+          {
+            "type": "table_cell",
+            "attrs": {
+              "align": null,
+              "head": true
+            },
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u0422\u0438\u043f \u0434\u0430\u043d\u043d\u044b\u0445 C++"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table_body",
+        "children": [
+          {
+            "type": "table_row",
+            "children": [
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "bool"
+                  }
+                ]
+              },
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "bool"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "table_row",
+            "children": [
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "int"
+                  }
+                ]
+              },
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "int"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "table_row",
+            "children": [
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "float"
+                  }
+                ]
+              },
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "double"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435 \u0431\u043e\u043b\u0435\u0435 \u0441\u043b\u043e\u0436\u043d\u044b\u0445 \u0442\u0438\u043f\u043e\u0432 \u0434\u0430\u043d\u043d\u044b\u0445 \u0432\u044b\u0445\u043e\u0434\u0438\u0442 \u0437\u0430 \u0437\u0430\u0434\u0430\u0447\u0443 \u043c\u0438\u043d\u0438\u0430\u0442\u044e\u0440\u043d\u043e\u0441\u0442\u0438 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440\u0430. \u041d\u043e \u0441\u0442\u043e\u0438\u0442 \u043e\u0442\u043c\u0435\u0442\u0438\u0442\u044c,"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0447\u0442\u043e \u0441\u0442\u0440\u043e\u043a\u0438, \u043a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u0438 \u0438 \u043e\u0431\u044a\u0435\u043a\u0442\u044b \u041f\u0438\u0442\u043e\u043d\u0430 \u043c\u043e\u0433\u0443\u0442 \u0431\u044b\u0442\u044c \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0430\u043d\u044b \u0441 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435\u043c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "Python C API"
+          }
+        ],
+        "attrs": {
+          "url": "https://docs.python.org/3/c-api/index.html"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u043e\u0434\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0438\u043c\u0451\u043d \u0444\u0443\u043d\u043a\u0446\u0438\u0439"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421++ \u0432\u0438\u0434\u043e\u0438\u0437\u043c\u0435\u043d\u044f\u0435\u0442 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u0441\u043e\u0433\u043b\u0430\u0441\u043d\u043e \u0438\u0445 \u0441\u0438\u0433\u043d\u0430\u0442\u0443\u0440\u0435 \u0438 \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u0430\u043c. \u041d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, \u0444\u0443\u043d\u043a\u0446\u0438\u044e "
+      },
+      {
+        "type": "codespan",
+        "raw": "int f(int x)"
+      },
+      {
+        "type": "text",
+        "raw": " \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440 \u043c\u043e\u0436\u0435\u0442"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u0440\u0435\u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u0442\u044c \u0432 "
+      },
+      {
+        "type": "codespan",
+        "raw": "_Z1fi"
+      },
+      {
+        "type": "text",
+        "raw": ". \u041f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435 \u043e \u0441\u043e\u0433\u043b\u0430\u0448\u0435\u043d\u0438\u0438 \u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043f\u0440\u0438 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u0438 \u043c\u043e\u0436\u043d\u043e \u0443\u0437\u043d\u0430\u0442\u044c, \u043d\u0430\u043f\u0440\u0438\u043c\u0435\u0440,"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0437\u0434\u0435\u0441\u044c"
+          }
+        ],
+        "attrs": {
+          "url": "https://en.wikipedia.org/wiki/Name_mangling"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u0441\u043b\u0435 \u043f\u0435\u0440\u0435\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u044f \u043a \u0444\u0443\u043d\u043a\u0446\u0438\u044f\u043c \u0443\u0436\u0435 \u043d\u0435\u043b\u044c\u0437\u044f \u043e\u0431\u0440\u0430\u0442\u0438\u0442\u044c\u0441\u044f \u043f\u043e \u043f\u0435\u0440\u0432\u043e\u043d\u0430\u0447\u0430\u043b\u044c\u043d\u043e\u043c\u0443 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044e."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u041a\u043e\u043d\u0435\u0447\u043d\u043e, \u043c\u043e\u0436\u043d\u043e \u0431\u044b\u043b\u043e \u0431\u044b \u043d\u0430\u043f\u0438\u0441\u0430\u0442\u044c \u0441\u0432\u043e\u0439 \u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0434\u0435\u043b\u0430\u0435\u0442 \u0442\u0435 \u0436\u0435 \u043f\u0440\u0435\u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u044f, \u0447\u0442\u043e \u0438 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0442\u043e\u0440. \u041d\u043e \u043d\u0430 \u0441\u0430\u043c\u043e\u043c \u0434\u0435\u043b\u0435,"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442 \u0431\u043e\u043b\u0435\u0435 \u043f\u0440\u043e\u0441\u0442\u043e\u0435 \u0440\u0435\u0448\u0435\u043d\u0438\u0435, \u043a \u043a\u043e\u0442\u043e\u0440\u043e\u043c\u0443 \u043c\u043d\u0435 \u043f\u0440\u0438\u0448\u043b\u043e\u0441\u044c \u0432 \u0438\u0442\u043e\u0433\u0435 \u043f\u0440\u0438\u0439\u0442\u0438."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u0438 \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u0438\u0438 \u043a \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043f\u0440\u0435\u0444\u0438\u043a\u0441\u0430 "
+      },
+      {
+        "type": "codespan",
+        "raw": "extend &quot;C&quot;"
+      },
+      {
+        "type": "text",
+        "raw": " \u0438\u043c\u0435\u043d\u0430 \u043d\u0435 \u0431\u0443\u0434\u0443\u0442 \u043a\u043e\u0434\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "extern \"C\" int sum(int x, int y) {\n    int res = (x + y);\n    return res;\n}\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "cpp"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0422\u0430\u043a \u043f\u0440\u043e\u0438\u0441\u0445\u043e\u0434\u0438\u0442, \u043f\u043e\u0442\u043e\u043c\u0443 \u0447\u0442\u043e \u043c\u044b \u044f\u0432\u043d\u043e \u0443\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u043c, \u0447\u0442\u043e \u0438\u043c\u0435\u043d\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u0434\u043e\u043b\u0436\u043d\u044b \u043a\u043e\u0434\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u043f\u043e \u0441\u043e\u0433\u043b\u0430\u0448\u0435\u043d\u0438\u044e \u044f\u0437\u044b\u043a\u0430 C,"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0442\u043e \u0435\u0441\u0442\u044c, \u043d\u0438\u043a\u0430\u043a."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0417\u0430\u043f\u0443\u0441\u043a DLL"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u0430\u043a \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442\u0443, \u043f\u043b\u043e\u0445\u043e \u0437\u043d\u0430\u043a\u043e\u043c\u043e\u043c\u0443 \u0441 \u0447\u0435\u043c-\u0442\u043e \u043d\u0438\u0436\u0435 C++, \u043c\u043d\u0435 \u0431\u044b\u043b\u043e \u0442\u0440\u0443\u0434\u043d\u043e \u043f\u043e\u043d\u044f\u0442\u044c, \u043a\u0430\u043a \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0441\u043e\u0431\u0440\u0430\u043d\u043d\u0443\u044e"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "dll-\u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0443 \u043a \u041f\u0438\u0442\u043e\u043d\u0443. \u0418\u0437\u043d\u0430\u0447\u0430\u043b\u044c\u043d\u043e \u0431\u044b\u043b\u0430 \u0438\u0434\u0435\u044f \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c "
+      },
+      {
+        "type": "codespan",
+        "raw": "rundll32.exe"
+      },
+      {
+        "type": "text",
+        "raw": " \u0434\u043b\u044f \u0437\u0430\u043f\u0443\u0441\u043a\u0430. \u041f\u043e\u0447\u0438\u0442\u0430\u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0412\u0438\u043a\u0438\u043f\u0435\u0434\u0438\u044e"
+          }
+        ],
+        "attrs": {
+          "url": "https://ru.wikipedia.org/wiki/Rundll32.exe"
+        }
+      },
+      {
+        "type": "text",
+        "raw": " \u0438"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0435\u0449\u0451 \u043e\u0434\u043d\u043e \u043e\u0431\u0441\u0443\u0436\u0434\u0435\u043d\u0438\u0435"
+          }
+        ],
+        "attrs": {
+          "url": "https://stackoverflow.com/questions/3207365/how-to-use-rundll32-to-execute-dll-function"
+        }
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u044f \u043d\u0435\u043c\u043d\u043e\u0433\u043e \u0440\u0430\u0437\u043e\u0447\u0430\u0440\u043e\u0432\u0430\u043b\u0441\u044f \u0432 \u043f\u0440\u0438\u043a\u043b\u0430\u0434\u043d\u043e\u0439 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u043c\u043e\u0441\u0442\u0438 \u0438 \u043f\u043e\u0440\u0442\u0438\u0440\u0443\u0435\u043c\u043e\u0441\u0442\u0438 \u044d\u0442\u043e\u0433\u043e \u0440\u0435\u0448\u0435\u043d\u0438\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u0442\u043e\u043c \u044f \u043d\u0430\u0448\u0451\u043b \u0441\u0442\u0430\u0442\u044c\u044e \u0441 \u0433\u043e\u0432\u043e\u0440\u044f\u0449\u0438\u043c \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435\u043c:"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "What\u2019s the guidance on when to use rundll32? Easy: Don\u2019t use it"
+          }
+        ],
+        "attrs": {
+          "url": "https://devblogs.microsoft.com/oldnewthing/20130104-00/?p=5643"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0441\u043b\u0435 \u044d\u0442\u043e\u0433\u043e \u044f \u0431\u044b\u043b \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d \u043d\u0430 \u043f\u0443\u0442\u044c \u0438\u0441\u0442\u0438\u043d\u043d\u044b\u0439, \u0430 \u0442\u043e\u0447\u043d\u0435\u0435, \u043d\u0430 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435 \u043c\u043e\u0434\u0443\u043b\u044f "
+      },
+      {
+        "type": "codespan",
+        "raw": "ctypes"
+      },
+      {
+        "type": "text",
+        "raw": ". \u0412 \u044d\u0442\u043e\u0442 \u043c\u043e\u043c\u0435\u043d\u0442"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043c\u043e\u0438 \u0441\u043a\u043e\u043c\u043f\u0438\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0432\u043f\u0435\u0440\u0432\u044b\u0435 \u043d\u0430\u0447\u0430\u043b\u0438 \u0432\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u0442\u044c \u043c\u043d\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f \u043f\u0440\u044f\u043c\u043e \u0432 \u041f\u0438\u0442\u043e\u043d\u0435."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u044b\u0437\u043e\u0432 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0438\u0437 DLL"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u0441\u0451 \u0448\u043b\u043e \u0433\u043b\u0430\u0434\u043a\u043e, \u043f\u043e\u043a\u0430 \u044f \u043e\u043f\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u043b \u0446\u0435\u043b\u044b\u043c\u0438 \u0447\u0438\u0441\u043b\u0430\u043c\u0438. \u041f\u0440\u0438 \u043f\u043e\u043f\u044b\u0442\u043a\u0435 \u0441\u0447\u0438\u0442\u0430\u0442\u044c \u0434\u0440\u043e\u0431\u043d\u044b\u0435... \u0432\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u043b\u0438\u0441\u044c \u0446\u0435\u043b\u044b\u0435 \u043e\u0447\u0435\u043d\u044c \u0441\u0442\u0440\u0430\u043d\u043d\u043e\u0433\u043e"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0444\u043e\u0440\u043c\u0430\u0442\u0430."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "# \u043f\u0440\u043e\u0441\u0442\u043e \u043f\u0438\u0442\u043e\u043d\nprint(exp(0.1)) \n# >>> 1.1051709180756475\n\n# \u043c\u043e\u0451 \u0447\u0443\u0434\u043e\nprint(jit_exp(0.1)) \n# >>> -1285947181\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u0430\u043a \u043e\u043a\u0430\u0437\u0430\u043b\u043e\u0441\u044c, \u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e, \u0432\u0441\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438, \u0438\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u0443\u0435\u043c\u044b\u0435 \u0438\u0437 dll \u0440\u0430\u0431\u043e\u0442\u0430\u044e\u0442 \u0441 \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u0430\u043c\u0438 \u043a\u0430\u043a \u0441 int \u0438 \u0432\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u044e\u0442 \u0442\u043e\u0436\u0435 int."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0422\u0443\u0442 \u0434\u043e \u043c\u0435\u043d\u044f \u0434\u043e\u0448\u043b\u043e, \u0447\u0442\u043e \u0432\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u0442\u044c \u043f\u0440\u043e\u0441\u0442\u043e \u0441\u0442\u0440\u043e\u043a\u0443 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b \u043d\u0430 C++ \u0438\u0437 \u0442\u0440\u0430\u043d\u0441\u043b\u044f\u0442\u043e\u0440\u0430 \u043d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e. \u0418\u0437 \u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0435\u0449\u0451"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0441\u0438\u0433\u043d\u0430\u0442\u0443\u0440\u0443, \u0447\u0442\u043e\u0431\u044b \u043f\u043e\u0442\u043e\u043c \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u043d\u0443\u0436\u043d\u044b\u0435 \u0442\u0438\u043f\u044b \u0438\u0437 \u043c\u043e\u0434\u0443\u043b\u044f "
+      },
+      {
+        "type": "codespan",
+        "raw": "ctypes"
+      },
+      {
+        "type": "text",
+        "raw": ". \u041c\u0435\u0442\u043e\u0434 \u043f\u043e\u0441\u0435\u0449\u0435\u043d\u0438\u044f \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043d\u0430\u0447\u0430\u043b"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0432\u044b\u0433\u043b\u044f\u0434\u0435\u0442\u044c \u0432\u043e\u0442 \u0442\u0430\u043a:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def visit_FunctionDef(self, node: FunctionDef) -> Tuple[str, dict]:\n    ret_type = self.visit(node.returns)\n    name = node.name\n    args, args_signature = [], []\n    for arg in node.args.args:\n        arg, arg_type = self.visit(arg)\n        args.append(f\"{arg_type} {arg}\")\n        args_signature.append(ctype_convert(arg_type))\n    args = \", \".join(args)\n    res = f\"extern \\\"C\\\" {ret_type} {name}({args}) {{\\n\"\n    res += self.dump_body(node.body) + \"}\"\n    signature = {\n        \"argtypes\": args_signature,\n        \"restype\": ctype_convert(ret_type)\n    }\n    return res, signature\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u044f\u0432\u0438\u043b\u0441\u044f \u043c\u0435\u0442\u043e\u0434 \u0432\u0441\u0442\u0440\u0430\u0438\u0432\u0430\u043d\u0438\u044f \u044d\u0442\u0438\u0445 \u0442\u0438\u043f\u043e\u0432 \u0432 \u0441\u0438\u0433\u043d\u0430\u0442\u0443\u0440\u0443 dll:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def jit(func: Callable) -> Callable:\n    exec_module, signatures = compile_dll(func)\n    name = func.__name__\n    jit_func = exec_module[name]\n    jit_func.argtypes = signatures[name][\"argtypes\"]\n    jit_func.restype = signatures[name][\"restype\"]\n    return jit_func\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0414\u043b\u044f \u0442\u043e\u0433\u043e \u0447\u0442\u043e\u0431\u044b \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0432\u044b\u0437\u044b\u0432\u0430\u043b\u0438\u0441\u044c \u0442\u0430\u043a \u0436\u0435 \u0445\u043e\u0440\u043e\u0448\u043e, \u043a\u0430\u043a \u0441 \u0446\u0435\u043b\u044b\u043c\u0438 \u0447\u0438\u0441\u043b\u0430\u043c\u0438, \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u0431\u044b\u043b\u043e \u043f\u043e\u043c\u0435\u043d\u044f\u0442\u044c \u0443 \u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u0432\u043d\u0443\u0442\u0440\u0438"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043d\u043d\u043e\u0433\u043e dll \u0430\u0442\u0440\u0438\u0431\u0443\u0442\u044b "
+      },
+      {
+        "type": "codespan",
+        "raw": "argtypes"
+      },
+      {
+        "type": "text",
+        "raw": " \u0438 "
+      },
+      {
+        "type": "codespan",
+        "raw": "restype"
+      },
+      {
+        "type": "text",
+        "raw": ". \u0421\u0430\u043c\u0438 \u0442\u0438\u043f\u044b \u0434\u043b\u044f \u043f\u043e\u0434\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u0431\u044b\u043b\u0438 \u0432\u0437\u044f\u0442\u044b \u0438\u0437 \u043c\u043e\u0434\u0443\u043b\u044f ctypes:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def ctype_convert(type_str: str):\n    match type_str:\n        case \"int\":\n            return ctypes.c_int\n        case \"double\":\n            return ctypes.c_double\n        case \"bool\":\n            return ctypes.c_bool\n        case _:\n            raise Exception(f\"unsupported type str {type_str}\")\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u0441\u043b\u0435 \u0432\u0441\u0435\u0445 \u044d\u0442\u0438\u0445 "
+      },
+      {
+        "type": "strikethrough",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u043d\u0430\u043a\u0440\u0443\u0447\u0438\u0432\u0430\u043d\u0438\u0439 \u043a\u043e\u0441\u0442\u044b\u043b\u0435\u0439"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "raw": " \u043c\u0430\u0445\u0438\u043d\u0430\u0446\u0438\u0439 \u043e\u0442\u0432\u0435\u0442 \u044d\u043a\u0441\u043f\u043e\u043d\u0435\u043d\u0442\u044b \u043d\u0430\u0447\u0430\u043b \u0441\u043e\u0432\u043f\u0430\u0434\u0430\u0442\u044c \u0441 \u041f\u0438\u0442\u043e\u043d\u043e\u043c."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435 \u043f\u0440\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0439, \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043d\u043d\u044b\u0445 \u0438\u0437 DLL, \u043c\u043e\u0436\u043d\u043e \u043f\u043e\u0447\u0438\u0442\u0430\u0442\u044c \u0432 \u044d\u0442\u043e\u0439 "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0441\u0442\u0430\u0442\u044c\u0435"
+          }
+        ],
+        "attrs": {
+          "url": "https://habr.com/ru/post/499152/"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041d\u0435\u043c\u043d\u043e\u0433\u043e \u043c\u0430\u0433\u0438\u0438"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0425\u043e\u0440\u043e\u0448\u0438\u0439 \u043a\u043e\u0434 \u043d\u0435 \u043f\u0438\u0448\u0435\u0442\u0441\u044f \u0441\u0440\u0430\u0437\u0443. \u041d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, \u0432 \u043c\u043e\u0451\u043c \u043f\u0440\u043e\u0435\u043a\u0442\u0435 \u043e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u0431\u043b\u043e\u043a\u0438 \u043f\u0440\u0438\u0448\u043b\u043e\u0441\u044c \u043f\u0435\u0440\u0435\u043f\u0438\u0441\u0430\u0442\u044c \u0434\u0432\u0430 \u0440\u0430\u0437\u0430. \u0412 \u043a\u0440\u0443\u043f\u043d\u044b\u0445 \u043f\u0440\u043e\u0435\u043a\u0442\u0430\u0445"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0431\u043e\u0440\u044c\u0431\u0430 \u0441 \u0442\u0435\u0445\u0434\u043e\u043b\u0433\u043e\u043c \u0432\u043e\u043e\u0431\u0449\u0435 \u043c\u043e\u0436\u0435\u0442 \u0443\u0445\u043e\u0434\u0438\u0442\u044c \u0432 \u0431\u0435\u0441\u043a\u043e\u043d\u0435\u0447\u043d\u043e\u0441\u0442\u044c, \u043d\u043e \u044f \u043f\u043e\u043a\u0430 \u0447\u0442\u043e, \u043a \u0441\u043e\u0436\u0430\u043b\u0435\u043d\u0438\u044e \u0438\u043b\u0438 \u043a \u0441\u0447\u0430\u0441\u0442\u044c\u044e, \u0441 \u044d\u0442\u0438\u043c \u043d\u0435 \u0441\u0442\u0430\u043b\u043a\u0438\u0432\u0430\u043b\u0441\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u042f \u0445\u043e\u0442\u0435\u043b \u043f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u043d\u0430 \u043f\u0440\u0438\u043c\u0435\u0440\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0441\u0438\u043d\u0442\u0430\u043a\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0440\u0430\u0437\u0431\u043e\u0440\u0430 \u0431\u0438\u043d\u0430\u0440\u043d\u043e\u0439 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438 "
+      },
+      {
+        "type": "codespan",
+        "raw": "ast.BinOp"
+      },
+      {
+        "type": "text",
+        "raw": " \u043a\u0430\u043a \u043c\u043e\u0436\u043d\u043e \u043f\u043e-\u0440\u0430\u0437\u043d\u043e\u043c\u0443"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u0438\u0441\u0430\u0442\u044c \u043a\u043e\u0434, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0431\u0443\u0434\u0435\u0442 \u0432 \u0440\u0430\u0437\u043d\u043e\u0439 \u0441\u0442\u0435\u043f\u0435\u043d\u0438 \u0441\u043b\u043e\u0436\u043d\u043e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0442\u044c."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0421\u043b\u043e\u0432\u0430\u0440\u044c \u0441 \u0442\u0438\u043f\u0430\u043c\u0438"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u042d\u0442\u043e \u0441\u0430\u043c\u0430\u044f \u043f\u0435\u0440\u0432\u0430\u044f \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def dump_bin_op(module: ast.BinOp) -> str:\n    res = \"\"\n    left = dump_expr(module.left)\n    right = dump_expr(module.right)\n    op = module.op\n    bin_op_signs = {\n        ast.Add: \"+\",\n        ast.Sub: \"-\",\n        ast.Div: \"/\",\n        ast.Mult: \"*\",\n        # \u0438 \u0435\u0449\u0451 6-8 \u0431\u0438\u043d\u0430\u0440\u043d\u044b\u0445 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439\n    }\n    op_sign = bin_op_signs[type(op)]\n    return f\"({left} {op_sign} {right})\"\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u043e \u0441\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u044e \u0441 \u0431\u043b\u043e\u043a\u043e\u043c "
+      },
+      {
+        "type": "codespan",
+        "raw": "if-elif-elif-elif-...-else"
+      },
+      {
+        "type": "text",
+        "raw": " \u0442\u0430\u043a\u043e\u0439 \u043a\u043e\u0434 \u043a\u0430\u0436\u0435\u0442\u0441\u044f \u043f\u0440\u043e\u0449\u0435. \u041d\u043e \u0442\u0443\u0442 \u043f\u0440\u043e\u0438\u0441\u0445\u043e\u0434\u0438\u0442 \u044f\u0432\u043d\u043e\u0435"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043e\u0431\u0440\u0430\u0449\u0435\u043d\u0438\u0435 \u043a \u0442\u0438\u043f\u0443 \u0447\u0435\u0440\u0435\u0437 "
+      },
+      {
+        "type": "codespan",
+        "raw": "type()"
+      },
+      {
+        "type": "text",
+        "raw": ", \u0447\u0442\u043e \u043d\u0435 \u043e\u0447\u0435\u043d\u044c \u0445\u043e\u0440\u043e\u0448\u043e."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "Match/case"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0422\u0443\u0442 \u043c\u043d\u0435 \u043f\u043e\u0441\u043e\u0432\u0435\u0442\u043e\u0432\u0430\u043b\u0438 \u043d\u0430\u0447\u0430\u0442\u044c \u0443\u0436\u0435 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u043f\u043b\u044e\u0448\u043a\u0438 \u0432\u0435\u0440\u0441\u0438\u0438 \u041f\u0438\u0442\u043e\u043d\u0430 3.10 \u043d\u0430 \u043f\u043e\u043b\u043d\u0443\u044e \u043a\u0430\u0442\u0443\u0448\u043a\u0443, \u0430 \u0438\u043c\u0435\u043d\u043d\u043e, \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0441\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u0435 \u043f\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u0443 \u0438 \u043e\u043f\u0435\u0440\u0430\u0442\u043e\u0440 "
+      },
+      {
+        "type": "codespan",
+        "raw": "match/case"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def dump_bin_op(module: ast.BinOp) -> str:\n    match module:\n        case ast.BinOp(op=ast.Add()):\n            op_sign = \"+\"\n        case ast.BinOp(op=ast.Sub()):\n            op_sign = \"-\"\n        case ast.BinOp(op=ast.Div()):\n            op_sign = \"/\"\n        case ast.BinOp(op=ast.Mult()):\n            op_sign = \"*\"\n        # \u0438 \u0435\u0449\u0451 6-8 \u0431\u0438\u043d\u0430\u0440\u043d\u044b\u0445 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439\n        case _:\n            raise Exception(f\"unsupported bin op type {op_type}\")\n    left = dump_expr(module.left)\n    right = dump_expr(module.right)\n    return f\"({left} {op_sign} {right})\"\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u043e\u0434 \u0441\u0442\u0430\u043b \u0447\u0443\u0442\u043e\u0447\u043a\u0443 \u043a\u043e\u0440\u043e\u0447\u0435 \u0438 \u0432\u044b\u0440\u0430\u0437\u0438\u0442\u0435\u043b\u044c\u043d\u0435\u0435. \u0428\u0430\u0431\u043b\u043e\u043d\u044b \u043f\u043e\u0441\u043b\u0435 \u0441\u043b\u043e\u0432\u0430 "
+      },
+      {
+        "type": "codespan",
+        "raw": "case"
+      },
+      {
+        "type": "text",
+        "raw": " \u043c\u043e\u0436\u043d\u043e \u0432\u0441\u044f\u0447\u0435\u0441\u043a\u0438 \u0443\u0441\u043b\u043e\u0436\u043d\u044f\u0442\u044c, \u0432\u044b\u0431\u0438\u0440\u0430\u044f \u0432\u0441\u0451 \u0431\u043e\u043b\u0435\u0435"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0441\u043f\u0435\u0446\u0438\u0444\u0438\u0447\u043d\u044b\u0435 \u0441\u043b\u0443\u0447\u0430\u0438. \u041a\u0430\u043a\u043e\u0439-\u043d\u0438\u0431\u0443\u0434\u044c "
+      },
+      {
+        "type": "codespan",
+        "raw": "switch/case"
+      },
+      {
+        "type": "text",
+        "raw": " \u0432 \u0434\u0440\u0443\u0433\u043e\u043c \u044f\u0437\u044b\u043a\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0442\u0430\u043a\u043e\u0433\u043e \u0441\u0435\u0431\u0435 \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u0442\u044c."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435 \u043f\u0440\u043e \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u043e\u043f\u0435\u0440\u0430\u0442\u043e\u0440\u0430 "
+      },
+      {
+        "type": "codespan",
+        "raw": "match/case"
+      },
+      {
+        "type": "text",
+        "raw": " \u043c\u043e\u0436\u043d\u043e \u0443\u0437\u043d\u0430\u0442\u044c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0442\u0443\u0442"
+          }
+        ],
+        "attrs": {
+          "url": "https://docs-python.ru/tutorial/tsikly-upravlenie-vetvleniem-python/konstruktsija-match-case/"
+        }
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u043e\u0442 \u0435\u0449\u0451 \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u0438\u0439 \u043f\u0440\u0438\u043c\u0435\u0440, \u0440\u0435\u0448\u0430\u044e\u0449\u0438\u0439 \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u0443 \u0437\u0430\u043d\u0438\u0436\u0435\u043d\u0438\u044f \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430 \u0434\u043b\u044f \u043a\u043e\u043d\u0441\u0442\u0430\u043d\u0442 "
+      },
+      {
+        "type": "codespan",
+        "raw": "True"
+      },
+      {
+        "type": "text",
+        "raw": " \u0438 "
+      },
+      {
+        "type": "codespan",
+        "raw": "False"
+      },
+      {
+        "type": "text",
+        "raw": ":"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "def visit_Constant(self, node: Constant) -> str:\n    match node:\n        case Constant(value=True):\n            return \"true\"\n        case Constant(value=False):\n            return \"false\"\n        case _:\n            return str(node.value)\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u044b\u0433\u043b\u044f\u0434\u0438\u0442 \u043f\u043e\u043a\u0440\u0430\u0441\u0438\u0432\u0435\u0435, \u0447\u0435\u043c "
+      },
+      {
+        "type": "codespan",
+        "raw": "if node.value == True:"
+      },
+      {
+        "type": "text",
+        "raw": ". \u041d\u043e \u0442\u0443\u0442 \u0443\u0436\u0435 \u043d\u0430 \u0432\u043a\u0443\u0441 \u0438 \u0446\u0432\u0435\u0442."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 3
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "ast.NodeVisitor"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u043e\u0442 \u044f \u0438 \u043f\u0440\u0438\u0448\u0451\u043b \u043a \u0442\u043e\u043c\u0443, \u0447\u0442\u043e \u0434\u0430\u0432\u043d\u043e \u043d\u0430\u043f\u0438\u0441\u0430\u043b\u0438 \u0437\u0430 \u043c\u0435\u043d\u044f, \u043d\u043e \u044f \u043e\u0431 \u044d\u0442\u043e\u043c \u043d\u0438\u043a\u043e\u0433\u0434\u0430 \u043d\u0435 \u0441\u043b\u044b\u0448\u0430\u043b, \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u0435\u0449\u0451 \u043d\u0435 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u043b."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u0430\u043a \u043d\u0438 \u0441\u0442\u0440\u0430\u043d\u043d\u043e, \u043c\u043e\u0434\u0443\u043b\u044c, \u043e\u043f\u0438\u0441\u044b\u0432\u0430\u044e\u0449\u0438\u0439 \u0430\u0431\u0441\u0442\u0440\u0430\u043a\u0442\u043d\u043e\u0435 \u0434\u0435\u0440\u0435\u0432\u043e \u0432 \u0432\u0438\u0434\u0435 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b, \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0442\u0430\u043a\u0436\u0435 \u0438 \u043c\u0435\u0442\u043e\u0434\u044b \u0434\u043b\u044f \u0435\u0433\u043e \u043e\u0431\u0445\u043e\u0434\u0430."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u042d\u0442\u043e\u0442 \u043c\u0435\u0442\u043e\u0434 \u043d\u0430\u0437\u044b\u0432\u0430\u0435\u0442\u0441\u044f "
+      },
+      {
+        "type": "codespan",
+        "raw": "ast.NodeVisitor.visit()"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u0430\u043a \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u0438\u0437 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f, NodeVisitor \u0440\u0435\u0430\u043b\u0438\u0437\u0443\u0435\u0442 \u0448\u0430\u0431\u043b\u043e\u043d \u043f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u041f\u043e\u0441\u0435\u0442\u0438\u0442\u0435\u043b\u044c"
+          }
+        ],
+        "attrs": {
+          "url": "https://refactoring.guru/ru/design-patterns/visitor"
+        }
+      },
+      {
+        "type": "text",
+        "raw": ","
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043f\u043e\u0437\u0432\u043e\u043b\u044f\u044e\u0449\u0438\u0439 \u0441\u043e\u0437\u0434\u0430\u0432\u0430\u0442\u044c \u043d\u043e\u0432\u0443\u044e \u0432\u043d\u0435\u0448\u043d\u044e\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044c \u0441 \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u043c \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435\u043c \u0443\u0436\u0435 \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u0434\u0430."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0414\u043b\u044f \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044f \u0441\u0432\u043e\u0435\u0433\u043e \u043f\u043e\u0441\u0435\u0442\u0438\u0442\u0435\u043b\u044f \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u043e\u0431\u044a\u044f\u0432\u0438\u0442\u044c \u043a\u043b\u0430\u0441\u0441-\u043d\u0430\u0441\u043b\u0435\u0434\u043d\u0438\u043a \u043a\u043b\u0430\u0441\u0441\u0430 "
+      },
+      {
+        "type": "codespan",
+        "raw": "ast.NodeVisitor"
+      },
+      {
+        "type": "text",
+        "raw": ":"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "block_code",
+    "raw": "class DumpVisitor(ast.NodeVisitor):\n    ...\n    def visit_BinOp(self, node: ast.BinOp) -> str:\n        return f\"({self.visit(node.left)} {self.visit(node.op)} {self.visit(node.right)})\"\n\n    def visit_Add(self, node: ast.Add) -> str:\n        return \"+\"\n\n    def visit_Sub(self, node: ast.Sub) -> str:\n        return \"-\"\n\n    def visit_Div(self, node: ast.Div) -> str:\n        return \"/\"\n\n    def visit_Mult(self, node: ast.Mult) -> str:\n        return \"*\"\n\n    # \u0435\u0449\u0451 6-8 \u043c\u0435\u0442\u043e\u0434\u043e\u0432 \u043e\u0431\u0445\u043e\u0434\u0430 \u0431\u0438\u043d\u0430\u0440\u043d\u044b\u0445 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439\n    ... # \u0438 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e\n",
+    "style": "fenced",
+    "marker": "```",
+    "attrs": {
+      "info": "python"
+    }
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u043e\u0434 \u043e\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u0445 \u043c\u0435\u0442\u043e\u0434\u043e\u0432 \u043f\u043e\u0441\u0435\u0442\u0438\u0442\u0435\u043b\u044f \u043c\u043e\u0436\u043d\u043e \u0438\u0437\u0443\u0447\u0438\u0442\u044c \u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438"
+          }
+        ],
+        "attrs": {
+          "url": "https://github.com/PenzaStreetGames/MetaStruct/blob/main/tree_to_code/dump_visitor.py"
+        }
+      },
+      {
+        "type": "text",
+        "raw": "."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041a\u043e\u0434 \u0441\u0442\u0430\u043b \u0431\u043e\u043b\u0435\u0435 \u043c\u043e\u0434\u0443\u043b\u044c\u043d\u044b\u043c, \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f \u0438 \u0441\u0438\u0433\u043d\u0430\u0442\u0443\u0440\u044b \u043c\u0435\u0442\u043e\u0434\u043e\u0432 \u0443\u0436\u0435 \u043f\u0440\u0438\u0434\u0443\u043c\u0430\u043d\u044b \u0437\u0430 \u043d\u0430\u0441, \u0432\u044b\u0431\u043e\u0440 \u043d\u0443\u0436\u043d\u043e\u0433\u043e \u043c\u0435\u0442\u043e\u0434\u0430 \u043f\u0440\u043e\u0438\u0441\u0445\u043e\u0434\u0438\u0442 \u0431\u0435\u0437"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043d\u0430\u0448\u0435\u0433\u043e \u0443\u0447\u0430\u0441\u0442\u0438\u044f. \u0412\u043e\u0442 \u043d\u0430 \u044d\u0442\u043e\u043c \u0432\u0430\u0440\u0438\u0430\u043d\u0442\u0435 \u044f \u0438 \u0440\u0435\u0448\u0438\u043b \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c\u0441\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0412\u043e \u0432\u0440\u0435\u043c\u044f \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044f \u043a\u043e\u0434\u0430 \u043d\u0430 \u041f\u0438\u0442\u043e\u043d\u0435 \u0443 \u043c\u0435\u043d\u044f \u0432\u043e\u0437\u043d\u0438\u043a\u0430\u0435\u0442 \u0447\u0443\u0432\u0441\u0442\u0432\u043e \u043e\u0449\u0443\u0449\u0435\u043d\u0438\u044f \u043a\u0440\u0430\u0441\u043e\u0442\u044b, \u043a\u0440\u0430\u0442\u043a\u043e\u0441\u0442\u0438 \u0438 \u043c\u043e\u0449\u0438 \u0441\u043e\u0431\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u0434\u0430."
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0412 \u044d\u0442\u043e\u043c \u0435\u0441\u0442\u044c \u043a\u0430\u043a\u0430\u044f-\u0442\u043e \u043c\u0430\u0433\u0438\u044f."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u043e\u0434\u0441\u0447\u0451\u0442 \u0441\u0442\u0440\u043e\u043a"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0414\u0430\u0431\u044b \u043d\u0435 \u043f\u043e\u0442\u0435\u0440\u044f\u0442\u044c \u0434\u043e\u0432\u0435\u0440\u0438\u0435 \u0447\u0438\u0442\u0430\u0442\u0435\u043b\u044f, \u044f \u043f\u0440\u043e\u0432\u0451\u043b \u043f\u043e\u0434\u0441\u0447\u0451\u0442 \u0441\u0442\u0440\u043e\u043a \u043a\u043e\u0434\u0430 \u0442\u0440\u0430\u043d\u0441\u043b\u044f\u0442\u043e\u0440\u0430:"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "table",
+    "children": [
+      {
+        "type": "table_head",
+        "children": [
+          {
+            "type": "table_cell",
+            "attrs": {
+              "align": null,
+              "head": true
+            },
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041a\u043e\u0434"
+              }
+            ]
+          },
+          {
+            "type": "table_cell",
+            "attrs": {
+              "align": null,
+              "head": true
+            },
+            "children": [
+              {
+                "type": "text",
+                "raw": "\u041e\u0431\u044a\u0451\u043c"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table_body",
+        "children": [
+          {
+            "type": "table_row",
+            "children": [
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "\u0410\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u044f \u0438 \u043f\u0440\u043e\u0446\u0435\u0441\u0441 \u043a\u043e\u043c\u043f\u0438\u043b\u044f\u0446\u0438\u0438"
+                  }
+                ]
+              },
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "36"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "table_row",
+            "children": [
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "\u0422\u0440\u0430\u043d\u0441\u043b\u044f\u0442\u043e\u0440 \u043d\u0430 NodeVisitor"
+                  }
+                ]
+              },
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "221"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "table_row",
+            "children": [
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "\u0418\u0442\u043e\u0433\u043e"
+                  }
+                ]
+              },
+              {
+                "type": "table_cell",
+                "attrs": {
+                  "align": null,
+                  "head": false
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "raw": "257"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041e\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0444\u0430\u0439\u043b\u044b, \u043a\u0430\u043a \u043e\u043a\u0430\u0437\u0430\u043b\u043e\u0441\u044c, \u043a \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0443 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f \u043d\u0430\u043f\u0440\u044f\u043c\u0443\u044e \u043d\u0435 \u043f\u0440\u0438\u0447\u0430\u0441\u0442\u043d\u044b. \u042f \u0434\u0430\u0436\u0435 \u043d\u0435 \u0441\u0442\u0430\u043b \u0438\u0441\u043a\u043b\u044e\u0447\u0430\u0442\u044c \u0442\u043e\u0433\u043e \u0431\u043e\u043b\u044c\u0448\u043e\u0433\u043e"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0447\u0438\u0441\u043b\u0430 \u043f\u0443\u0441\u0442\u044b\u0445 \u0441\u0442\u0440\u043e\u043a, \u043a\u043e\u0442\u043e\u0440\u043e\u0433\u043e \u0442\u0440\u0435\u0431\u0443\u0435\u0442 PEP8. \u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u0434\u0430\u0436\u0435 \u043d\u0435\u043c\u043d\u043e\u0433\u043e \u043d\u0430\u0432\u0440\u0430\u043b"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0447\u0438\u0442\u0430\u0442\u0435\u043b\u044e \u043d\u0430\u0441\u0447\u0451\u0442 \u0447\u0438\u0441\u043b\u0430 \u0441\u0442\u0440\u043e\u043a. \u041f\u0443\u0441\u0442\u044c \u043e\u043d \u043c\u0435\u043d\u044f \u043f\u0440\u043e\u0441\u0442\u0438\u0442."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0414\u0443\u043c\u0430\u044e, \u0442\u0430\u043a\u043e\u0439 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442 \u043c\u043e\u0436\u043d\u043e \u0431\u044b\u043b\u043e \u0431\u044b \u043b\u0435\u0433\u043a\u043e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0442\u044c, \u0435\u0441\u043b\u0438 \u0431\u044b \u0432 \u044d\u0442\u043e\u043c \u0431\u044b\u043b\u0430 \u0431\u044b \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0441\u0442\u044c."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "level": 2
+    },
+    "style": "axt",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0418\u0442\u043e\u0433"
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0425\u043e\u0447\u0443 \u0441\u043a\u0430\u0437\u0430\u0442\u044c \u0441\u043f\u0430\u0441\u0438\u0431\u043e "
+      },
+      {
+        "type": "link",
+        "children": [
+          {
+            "type": "text",
+            "raw": "\u041f\u0435\u0442\u0440\u0443 \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u0438\u0447\u0443 \u0421\u043e\u0432\u0435\u0442\u043e\u0432\u0443"
+          }
+        ],
+        "attrs": {
+          "url": "https://habr.com/ru/users/true-grue/"
+        }
+      },
+      {
+        "type": "text",
+        "raw": " \u0437\u0430 \u043d\u0430\u0441\u0442\u0430\u0432\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043f\u0440\u0438"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u0438 \u044d\u0442\u043e\u0433\u043e \u043f\u0440\u043e\u0435\u043a\u0442\u0430 \u0438 \u044d\u0442\u043e\u0439 \u0441\u0442\u0430\u0442\u044c\u0438. \u041a\u0430\u043a \u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442\u0441\u044f, \u043f\u0438\u0441\u0430\u0442\u044c \u0441\u0442\u0430\u0442\u044c\u0438 \u0442\u0440\u0443\u0434\u043d\u0435\u0435, \u0447\u0435\u043c \u043f\u0438\u0441\u0430\u0442\u044c \u043a\u043e\u0434 \u0432 \u044f\u0449\u0438\u043a."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u043e\u0435\u043a\u0442\u0443 \u0432 \u043f\u043b\u0430\u043d\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u0430 \u0435\u0441\u0442\u044c \u043a\u0443\u0434\u0430 \u0440\u0430\u0441\u0442\u0438. \u041f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u0441\u0442\u0440\u043e\u043a, \u043a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u0439, \u043e\u0431\u044a\u0435\u043a\u0442\u043e\u0432, \u043a\u043b\u0430\u0441\u0441\u043e\u0432. \u041f\u0440\u0430\u0432\u0434\u0430 \u0441 \u0443\u0447\u0451\u0442\u043e\u043c \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u043e\u0433\u043e"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u0437\u0430\u0447\u0451\u0442\u0430, \u043f\u0440\u0435\u0434\u043b\u0430\u0433\u0430\u044e \u044d\u043d\u0442\u0443\u0437\u0438\u0430\u0441\u0442\u0430\u043c, \u0432\u0437\u044f\u0432 \u043c\u043e\u0451 \u0440\u0435\u0448\u0435\u043d\u0438\u0435 \u0437\u0430 \u043e\u0441\u043d\u043e\u0432\u0443, \u0434\u043e\u0431\u0438\u0442\u044c\u0441\u044f \u0431\u043e\u043b\u044c\u0448\u0435\u0439 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u0438 \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u041f\u0440\u0435\u0434\u0435\u043b \u0443 \u044d\u0442\u043e\u0433\u043e \u0441\u043e\u0432\u0435\u0440\u0448\u0435\u043d\u0441\u0442\u0432\u0430 \u0432\u0441\u0451 \u0440\u0430\u0432\u043d\u043e \u0435\u0441\u0442\u044c. \u041d\u0430 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0435 \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a \u0442\u0430\u043a\u0438\u0435 \u0440\u0435\u0448\u0435\u043d\u0438\u044f \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u0438 \u043e\u0431\u044b\u0447\u043d\u043e \u043e\u0442\u043a\u0430\u0437\u044b\u0432\u0430\u044e\u0442\u0441\u044f \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043b\u0438\u0431\u043e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u044e\u0442 \u0441\u0430\u043c\u044b\u0435 \u043f\u043e\u043f\u0443\u043b\u044f\u0440\u043d\u044b\u0435 \u0438 \u0431\u0430\u0437\u043e\u0432\u044b\u0435, \u0442\u0430\u043a\u0438\u0435 \u043a\u0430\u043a Numpy \u0438\u043b\u0438 PIL."
+      }
+    ]
+  },
+  {
+    "type": "blank_line"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "raw": "\u0418 \u0432\u0441\u0451 \u0436\u0435, \u0435\u0441\u043b\u0438 \u043e\u0447\u0435\u043d\u044c \u0437\u0430\u0445\u043e\u0442\u0435\u0442\u044c, \u043c\u043e\u0436\u043d\u043e \u0437\u0430\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u041f\u0438\u0442\u043e\u043d \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0431\u044b\u0441\u0442\u0440\u0435\u0435, \u0443\u043d\u0438\u0447\u0442\u043e\u0436\u0430\u044f \u043e\u0434\u0438\u043d \u0438\u0437 \u0438\u0437\u0432\u0435\u0447\u043d\u044b\u0445 \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442\u043e\u0432"
+      },
+      {
+        "type": "softbreak"
+      },
+      {
+        "type": "text",
+        "raw": "\u043d\u0430 C++ \u0438 Java \u043f\u0440\u043e\u0442\u0438\u0432 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f Python."
+      }
+    ]
+  }
+]
