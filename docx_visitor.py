@@ -1,3 +1,6 @@
+from docx.enum.style import WD_STYLE_TYPE
+from docx.table import Table
+
 import docx
 from docx.parts.document import Document
 from docx.section import Section
@@ -90,6 +93,15 @@ class DocxStylesheet:
         paragraph.style.font.color.rgb = None
         return paragraph
 
+    def table_header_style(self, paragraph: Paragraph) -> Paragraph:
+        paragraph_format = paragraph.paragraph_format
+        paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
+        paragraph_format.line_spacing = 1.0
+        paragraph.style.font.name = 'Times New Roman'
+        paragraph.style.font.size = Pt(14)
+        paragraph.style.font.color.rgb = None
+        return paragraph
+
 
 class DocxTreeVisitor:
 
@@ -98,9 +110,12 @@ class DocxTreeVisitor:
         self.doc: Document = docx.Document()
         self.section: Section = self.doc.sections[-1]
         self.paragraph: Paragraph = None
+        self.table: Table = None
+        self.table_coords = [0, 0]
         self.header_numbers = {2: 0, 3: 0}
         self.listing_counter = 0
         self.image_counter = 0
+        self.table_counter = 0
 
         self.stylesheet = DocxStylesheet()
         self.stylesheet.set_styles(self.doc)
@@ -182,18 +197,38 @@ class DocxTreeVisitor:
         return runs
 
     def _visit_table(self, node):
-        return []
+        self.table_counter += 1
+        table_name = f'Таблица {self.table_counter} – Название таблицы'
+        self.paragraph = self.doc.add_paragraph(table_name)
+        self.stylesheet.table_header_style(self.paragraph)
+        table_width = len(node['children'][0]['children'])
+        table_height = len(node['children'][1]['children']) + 1
+        self.table = self.doc.add_table(rows=table_height, cols=table_width)
+        self.table.style = self.doc.styles['Table Grid']
+        self.table_coords = [0, 0]
+        [self.visit(child) for child in node['children']]
+        return [self.table]
 
     def _visit_table_head(self, node):
-        return []
+        res = sum([self.visit(child) for child in node['children']], start=[])
+        self.table_coords[0] += 1
+        return res
 
     def _visit_table_body(self, node):
-        return []
+        res = sum([self.visit(child) for child in node['children']], start=[])
+        return [res]
 
     def _visit_table_row(self, node):
+        self.table_coords[1] = 0
+        [self.visit(child) for child in node['children']]
+        self.table_coords[0] += 1
         return []
 
     def _visit_table_cell(self, node):
+        cell = self.table.cell(*self.table_coords)
+        self.paragraph = cell.paragraphs[-1]
+        [self.visit(child) for child in node['children']]
+        self.table_coords[1] += 1
         return []
 
     def _visit_list(self, node):
